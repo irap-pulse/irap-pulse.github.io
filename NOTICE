@@ -1,27 +1,35 @@
-ISM Quarterly Review Tool
-Copyright 2026 Gaurav Vikash <https://www.linkedin.com/in/gauravvikash/>
+IRAP Pulse
+Copyright © 2026 Cybernion <https://cybernion.com.au/>
 
-This product includes software developed by Gaurav Vikash.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Redistributions (Source or Object form) of this Work, or any Derivative
-Work, must retain this NOTICE file and the attribution of original
-authorship above. See Section 4 of the Apache License 2.0 for the full
-redistribution conditions — in short: keep the copyright, keep this
-NOTICE, and mark any files you have modified.
+Built by Gaurav Vikash <https://www.linkedin.com/in/gauravvikash/>
 
 ---
 
-Third-party components bundled or loaded at runtime:
+Third-party components loaded at runtime:
 
-- xlsx-js-style         — MIT Licence, © SheetJS / gitbrent
-- docx.js (dolanmiu)    — MIT Licence, © Dolan Miu
-- pdf.js (Mozilla)      — Apache Licence 2.0, © Mozilla Foundation
+- xlsx-js-style v1.2.0
+  Apache Licence 2.0 — © SheetJS / gitbrent
+  https://github.com/gitbrent/xlsx-js-style
+  Loaded from: https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js
+  SRI: sha384-OUW9euuUyxyHcAhTqbhI+Iyb8LMssXt/cpz0yXhs9UWG2/R/uaWdakx/4cfww7Vb
 
-Each third-party component retains its own copyright and licence terms.
-This project does not claim authorship of those components.
+- pdf.js v3.11.174
+  Apache Licence 2.0 — © Mozilla Foundation
+  https://github.com/mozilla/pdf.js
+  Loaded from: https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js
+  SRI: sha384-/1qUCSGwTur9vjf/z9lmu/eCUYbpOTgSjmpbMQZ1/CtX2v/WcAIKqRv+U1DUCG6e
+
+Both libraries are pinned to exact versions with Subresource Integrity (SRI)
+hashes. The browser will refuse to execute either library if the CDN serves
+a modified file.
+
+Each third-party component retains its own copyright and licence.
+IRAP Pulse does not claim authorship of those components.
+
+---
+
+"ISM", "Cloud Controls Matrix", "Essential Eight", "IRAP" and related terms
+refer to work published by the Australian Signals Directorate / Australian
+Cyber Security Centre. IRAP Pulse is an independent utility and is not
+endorsed by, affiliated with, or sponsored by ASD, ACSC or the Australian
+Government.

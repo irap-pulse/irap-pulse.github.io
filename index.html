@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
-  ISM Pulse - A Quarterly Change Review Tool
-  Copyright 2026 Gaurav Vikash <https://www.linkedin.com/in/gauravvikash/>
+  IRAP Pulse - Be IRAP Ready. Always.
+  Copyright 2026 Cybernion <https://cybernion.com.au/>
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -23,10 +23,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="author" content="Gaurav Vikash" />
-<meta name="copyright" content="© 2026 Gaurav Vikash. Licensed under Apache 2.0." />
+<meta name="author" content="Cybernion" />
+<meta name="copyright" content="© 2026 Cybernion. Licensed under Apache 2.0." />
 <meta name="license" content="Apache-2.0" />
-<title>ISM Quarterly Review Tool</title>
+<title>IRAP Pulse - Be IRAP Ready. Always.</title>
 <!-- xlsx-js-style is a drop-in superset of SheetJS that adds style-write support
      (alignment, fills, borders, fonts). Used for both parsing uploads and writing the export. -->
 <script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"
@@ -196,14 +196,9 @@
     box-shadow: 0 0 0 3px rgba(46, 117, 182, 0.15);
   }
   textarea { resize: vertical; min-height: 60px; font-family: inherit; }
-  .file-row { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
-  .file-label { flex: 0 0 240px; font-size: 13px; font-weight: 500; color: var(--text); }
-  .file-label .hint { font-weight: 400; color: var(--text-muted); font-size: 12px; }
   /* Comparison mode picker — sits above the file slots and toggles labels
      + validation flavour based on whether the baseline is an SSP-A or a
      second CCM. */
-  .file-input-wrap { flex: 1; display: flex; gap: 8px; align-items: center; }
-  .file-input-wrap input[type="file"] { flex: 1; font-size: 12px; padding: 4px; background: #fafbfc; border: 1px dashed var(--border-strong); border-radius: var(--radius); }
   .drop-zone { border-radius: var(--radius); transition: background 0.15s; }
   .drop-zone.drag-over { background: #e8f2fc; outline: 2px dashed var(--primary); outline-offset: 2px; }
   .file-status { font-size: 12px; color: var(--text-muted); white-space: nowrap; min-width: 120px; text-align: right; }
@@ -328,7 +323,6 @@
   .col-scoping .scoping-prov { font-weight: 500; }
   .col-scoping .scoping-stat { color: var(--text-muted); }
   .col-inscope  { min-width: 70px; width: 70px; }
-  .col-triage   { min-width: 90px; width: 90px; }
   .validation-note { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
   .validation-note.ok { color: #128a5a; }
   .validation-note.warn { color: #c0392b; }
@@ -344,8 +338,6 @@
   .diff-inline { padding: 4px 6px; border-radius: 4px; display: block; background: #fbfcfe; border: 1px solid var(--border); line-height: 1.5; color: var(--text); }
   .diff-inline ins { background: #d7ecc3; color: #1f4e0f; text-decoration: none; border-radius: 2px; padding: 0 2px; }
   .diff-inline del { background: #f5c9c3; color: #701a10; text-decoration: line-through; border-radius: 2px; padding: 0 2px; }
-  .diff-toggle { margin-top: 4px; font-size: 11px; color: var(--primary); cursor: pointer; background: none; border: none; padding: 0; text-decoration: underline; }
-  .diff-toggle:hover { color: var(--primary-dark); }
   .empty-state { padding: 32px; text-align: center; color: var(--text-muted); font-size: 14px; }
   .hidden { display: none; }
   .spinner { display: inline-block; width: 12px; height: 12px; border: 2px solid #eee; border-top-color: var(--primary); border-radius: 50%; animation: spin 0.8s linear infinite; vertical-align: middle; margin-right: 6px; }
@@ -568,26 +560,23 @@
     font-weight: 600;
   }
   .privacy-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #2e7d32; }
-  /* Privacy badge in the header — adapts to the dark background */
-  .header-privacy {
-    background: rgba(255,255,255,0.12);
-    color: #d4f7e0;
-    border-color: rgba(255,255,255,0.25);
-    font-weight: 500;
-  }
-  .header-privacy .dot { background: #6ee89e; }
-  .header-session-notice {
-    background: rgba(255,255,255,0.10);
-    color: rgba(255,255,255,0.85);
-    border-color: rgba(255,255,255,0.20);
-    font-weight: 400;
-  }
-  /* hdr-meta wraps the description + privacy badge in a flex row */
+  /* hdr-meta is now a light bar below the tab-bar, outside the dark header */
   .hdr-meta {
     display: flex; flex-wrap: wrap; align-items: center;
-    gap: 10px 18px; margin-top: 6px;
+    gap: 10px 18px;
+    background: #f0f4f9;
+    border-bottom: 1px solid var(--border);
+    padding: 6px 32px;
   }
-  .hdr-meta p { margin: 0; opacity: 0.9; font-size: 13px; }
+  .hdr-meta p { margin: 0; font-size: 13px; }
+  /* .header-privacy now sits on the light hdr-meta bar — use default badge colours */
+  .header-privacy {
+    background: #e7f3ea;
+    color: #22613a;
+    border-color: #b8dcc2;
+    font-weight: 500;
+  }
+  .header-privacy .dot { background: #2e7d32; }
   details.themes { margin-top: 14px; }
   details.themes summary { cursor: pointer; font-weight: 500; color: var(--primary-dark); padding: 6px 0; }
   details.themes ul { padding-left: 20px; margin: 8px 0; }
@@ -603,18 +592,33 @@
   .bundled-item.ok   { color: #128a5a; font-weight: 500; }
   .bundled-item.err  { color: #c0392b; font-weight: 500; }
   .bundled-item .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
-  /* Comparison mode inside a disclosure — keep it accessible but out of the way */
-  details.mode-details { margin-top: 14px; }
-  details.mode-details > summary {
-    font-size: 12px; color: var(--text-muted); cursor: pointer;
-    user-select: none; list-style: none; display: inline-flex; align-items: center; gap: 5px;
+
+  /* Bundled-file version panel — shows filename, quarter, size, SHA-256 prefix */
+  .file-version-panel {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 12px;
+    color: var(--text-muted);
   }
-  details.mode-details > summary::-webkit-details-marker { display: none; }
-  details.mode-details > summary::before {
-    content: "▶"; font-size: 9px; display: inline-block; transition: transform 0.15s ease;
+  .fv-heading {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.45px; color: var(--text-muted); margin-bottom: 7px;
   }
-  details.mode-details[open] > summary::before { transform: rotate(90deg); }
-  details.mode-details .mode-row { margin-top: 10px; }
+  .fv-table { border-collapse: collapse; width: 100%; }
+  .fv-table th, .fv-table td {
+    text-align: left; padding: 3px 12px 3px 0;
+    font-size: 11.5px; vertical-align: top;
+  }
+  .fv-table th { font-weight: 600; color: var(--text-muted); border-bottom: 1px solid var(--border); padding-bottom: 5px; }
+  .fv-table td { color: var(--text); border-bottom: 1px solid #edf0f4; }
+  .fv-table tr:last-child td { border-bottom: none; }
+  .fv-hash { font-family: ui-monospace, "SF Mono", "Fira Code", monospace; letter-spacing: 0.3px; font-size: 11px; color: #4a5568; }
+  .fv-ok   { color: #128a5a; font-weight: 500; }
+  .fv-warn { color: #b45309; }
+
   footer {
     margin-top: 40px; padding: 20px 24px 28px; border-top: 1px solid var(--border);
     font-size: 12px; color: var(--text-muted); line-height: 1.55;
@@ -646,6 +650,143 @@
   }
   footer .disclaimer b { color: var(--text); }
   footer .fineprint { font-size: 11.5px; }
+
+  /* ===== TAB BAR ===================================================== */
+  .tab-bar {
+    background: var(--surface);
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    gap: 0;
+    padding: 0 32px;
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 500;
+    margin-bottom: -2px;
+    padding: 13px 20px 10px;
+  }
+  .tab-btn:hover { color: var(--primary); background: #f5f9fd; }
+  .tab-btn.active {
+    border-bottom-color: var(--primary);
+    color: var(--primary-dark);
+    font-weight: 600;
+  }
+
+  /* ===== TAB 1 — CREATE SSP-A ======================================= */
+  .sspa-banner {
+    background: #eef3f9;
+    border: 1px solid #c8d9ee;
+    border-left: 4px solid var(--primary);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+  .sspa-banner-eyebrow { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #2e75b6; margin-bottom: 6px; }
+  .sspa-banner-eyebrow .eyebrow-icon { font-size: 14px; }
+  .sspa-banner strong { color: var(--primary-dark); display: block; margin-bottom: 5px; font-size: 13.5px; }
+  .sspa-banner p { margin: 0; color: var(--text); }
+
+  /* Source selection — radio cards */
+  .sspa-source-options { display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
+  .sspa-source-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    cursor: pointer;
+    flex: 1 1 220px;
+    background: #fafbfc;
+    transition: border-color 0.12s, background 0.12s;
+  }
+  .sspa-source-option:hover { border-color: var(--primary); background: #f0f6fc; }
+  .sspa-source-option.selected { border-color: var(--primary); background: #eef3f9; box-shadow: 0 0 0 2px rgba(46,117,182,0.15); }
+  .sspa-source-option input[type="radio"] { margin-top: 2px; flex-shrink: 0; }
+  .sspa-source-label { display: flex; flex-direction: column; gap: 3px; }
+  .sspa-source-label strong { font-size: 13px; color: var(--text); }
+  .sspa-source-label .hint { font-size: 12px; color: var(--text-muted); }
+
+  /* NA count badge */
+  .sspa-na-badge {
+    display: inline-block;
+    background: #fff8e6;
+    border: 1px solid #f0cc75;
+    border-radius: var(--radius);
+    padding: 8px 12px;
+    font-size: 13px;
+    color: #5a3e00;
+    line-height: 1.45;
+  }
+  .sspa-na-badge strong { color: #3d2800; }
+
+  /* Guidelines list — 3-column grid on wide screens */
+  #sspa-guidelines-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    align-items: start;
+  }
+  @media (max-width: 1100px) { #sspa-guidelines-list { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px)  { #sspa-guidelines-list { grid-template-columns: 1fr; } }
+
+  /* Group labels span all columns */
+  .sspa-gl-group-label { grid-column: 1 / -1; }
+
+  .sspa-guideline-item {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    background: var(--surface);
+    transition: background 0.1s;
+  }
+  .sspa-guideline-item.out-of-scope { background: #fdf6f6; border-left: 3px solid #c27ba0; }
+  .sspa-gl-header { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+  .sspa-gl-label { display: flex; align-items: baseline; gap: 8px; cursor: pointer; flex-shrink: 0; }
+  .sspa-gl-label input[type="checkbox"] { margin-top: 1px; flex-shrink: 0; }
+  .sspa-gl-name { font-size: 13px; font-weight: 600; color: var(--primary-dark); }
+  .sspa-gl-pretick-tag {
+    font-size: 11px;
+    color: #2d5c1d;
+    background: #e7f3ea;
+    border: 1px solid #b8dcc2;
+    border-radius: 4px;
+    padding: 2px 7px;
+    white-space: normal;
+    max-width: 560px;
+    line-height: 1.4;
+  }
+  .sspa-gl-description { margin: 0 0 0 24px; font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
+  .sspa-gl-justification { margin: 8px 0 0 24px; }
+  .sspa-gl-just-label { font-size: 11.5px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.3px; display: block; margin-bottom: 4px; }
+  .sspa-gl-justification textarea { width: 100%; font-size: 12.5px; font-family: inherit; border: 1px solid var(--border-strong); border-radius: var(--radius); padding: 6px 8px; resize: vertical; min-height: 52px; color: var(--text); }
+  .sspa-gl-justification textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(46,117,182,0.12); }
+
+  /* Upload drop zone inside Tab 1 */
+  #sspa-drop-zone {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 8px 10px;
+    border: 1px dashed var(--border-strong);
+    border-radius: var(--radius);
+    background: #fafbfc;
+    cursor: pointer;
+  }
+  #sspa-drop-zone.drag-over { background: #e8f2fc; outline: 2px dashed var(--primary); outline-offset: 2px; }
+  #sspa-drop-zone input[type="file"] { flex: 1; font-size: 12px; }
 </style>
 </head>
 <body>
@@ -654,7 +795,7 @@
 
 <header>
   <div class="hdr-row">
-    <h1>ISM Pulse - A Quarterly Change Review Tool</h1>
+    <h1>IRAP Pulse - Be IRAP Ready. Always.</h1>
     <span class="self-test-group">
       <span class="self-test-pill pending" id="self-test-pill" role="status" aria-live="polite"
             title="Startup self-test status">
@@ -672,13 +813,223 @@
       </span>
     </span>
   </div>
-  <div class="hdr-meta">
-    <span class="privacy-badge header-privacy"><span class="dot" aria-hidden="true"></span>Your uploaded files are processed locally in your browser. They are not uploaded anywhere.</span>
-    <span class="privacy-badge header-session-notice"><span style="margin-right:4px;">⚠</span>This is not an AI/LLM tool. The browser-based tool cannot save any data. Please download your files before you close or refresh this tab.</span>
-  </div>
 </header>
 
+<div class="tab-bar" role="tablist" aria-label="Tool sections">
+  <button class="tab-btn active" id="tab-btn-1" role="tab" aria-selected="true" aria-controls="tab1-panel" tabindex="0">Create SSP-A</button>
+  <button class="tab-btn" id="tab-btn-2" role="tab" aria-selected="false" aria-controls="tab2-panel" tabindex="-1">Update SSP-A or CCM</button>
+</div>
+<div class="hdr-meta">
+  <span class="privacy-badge header-privacy"><span class="dot" aria-hidden="true"></span>Your uploaded files are processed locally in your browser. They are not uploaded anywhere.</span>
+</div>
+
 <main id="main-content" tabindex="-1">
+
+<!-- ========== TAB 1: CREATE SSP-A ========== -->
+<div id="tab1-panel" role="tabpanel" aria-labelledby="tab-btn-1">
+
+  <section class="sspa-banner">
+    <div class="sspa-banner-eyebrow"><span class="eyebrow-icon">⚠</span> Before you start</div>
+    <strong>Focus on the intent of ISM requirements, not just the letter.</strong>
+    <p>A common approach when completing a System Security Plan-Annex (SSP-A) is reading each control literally and marking it Not Applicable because the wording does not seem to fit. The ISM is outcome-focused - the intent of a control is as important as the precise phrasing or whether your organisation uses the exact terminology in the requirement.</p>
+    <p style="margin-top:8px;">Three things to keep in mind before you start:</p>
+    <ul style="margin:6px 0 0 18px; padding:0; font-size:13px; line-height:1.6;">
+      <li><b>Not meeting a control is different from that control not applying.</b> Use Not Applicable only where there is a genuine architectural or organisational reason — for example, physical security controls for a system with no on-premises footprint.</li>
+      <li><b>Even where responsibility is delegated</b> — to a cloud provider, a managed security service, or another team — the organisation retains accountability and must be able to demonstrate how that accountability is fulfilled.</li>
+      <li><b>Board-level controls apply to every organisation regardless of size.</b> For example, if your organisation does not have a formal board of directors — a committee, leader, or individual with right authority may fulfil the intent of executive accountability for cyber security.</li>
+    </ul>
+  </section>
+
+  <section id="sspa-source-section">
+    <h2>Template details</h2>
+
+    <div class="step-grid" style="margin-bottom:16px;">
+      <div>
+        <label for="sspa-org-name">Organisation name <span class="req-mark" aria-hidden="true">*</span></label>
+        <input type="text" id="sspa-org-name" placeholder="e.g. Acme Corp" autocomplete="organization" />
+      </div>
+    </div>
+
+    <label>SSP-A template source <span class="req-mark" aria-hidden="true">*</span></label>
+    <div class="sspa-source-options" role="radiogroup" aria-label="SSP-A template source">
+      <label class="sspa-source-option" id="sspa-src-bundled-card">
+        <input type="radio" name="sspa-source" value="bundled" id="sspa-src-bundled" />
+        <span class="sspa-source-label">
+          <strong>Use ASD's current SSP-A Template (.xlsx)</strong>
+          <span class="hint">Embedded in this tool, fetched automatically</span>
+        </span>
+      </label>
+      <label class="sspa-source-option" id="sspa-src-upload-card">
+        <input type="radio" name="sspa-source" value="upload" id="sspa-src-upload" />
+        <span class="sspa-source-label">
+          <strong>Upload your own SSP-A Template (.xlsx)</strong>
+          <span class="hint">An ASD SSP-A template you have downloaded from cyber.gov.au</span>
+        </span>
+      </label>
+    </div>
+
+    <div id="sspa-upload-row" class="hidden" style="margin-top:10px;">
+      <div class="drop-zone" id="sspa-drop-zone">
+        <input type="file" id="sspa-file-upload" accept=".xlsx" aria-label="Upload SSP-A template (.xlsx)" />
+        <span style="font-size:12px; color:var(--text-muted); white-space:nowrap;">Drop here or click to browse</span>
+      </div>
+    </div>
+
+    <div id="sspa-template-status" aria-live="polite" style="margin-top:8px; font-size:12.5px;"></div>
+    <div class="file-version-panel hidden" id="sspa-file-info" aria-live="polite">
+      <div class="fv-heading">Bundled template file</div>
+      <table class="fv-table" aria-label="SSP-A template version">
+        <thead><tr><th>File</th><th>Quarter</th><th>Size</th><th>SHA-256 (first 16 chars)</th><th>Status</th></tr></thead>
+        <tbody id="fv-rows-tab1"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <div id="sspa-steps" class="hidden">
+
+    <!-- Step 1 -->
+    <section id="sspa-step1">
+      <h2>Step 1 — Classification</h2>
+      <div style="max-width:340px;">
+        <label for="sspa-classification">System classification <span class="req-mark" aria-hidden="true">*</span></label>
+        <select id="sspa-classification">
+          <option value="" disabled selected>Select classification…</option>
+          <option value="NC">NC (Not Classified)</option>
+          <option value="OFFICIAL:Sensitive">OFFICIAL: Sensitive</option>
+          <option value="PROTECTED">PROTECTED</option>
+          <option value="SECRET">SECRET</option>
+          <option value="TOP SECRET">TOP SECRET</option>
+        </select>
+      </div>
+      <div id="sspa-na-count" class="hidden" aria-live="polite" style="margin-top:12px;"></div>
+    </section>
+
+    <!-- Step 2 -->
+    <section id="sspa-step2">
+      <h2>Step 2 — Scope</h2>
+      <p style="margin:0 0 16px; font-size:13px; color:var(--text-muted);">Tick every ISM Guideline that is in scope for this assessment. Pre-ticked Guidelines apply to nearly every system — untick any that genuinely do not apply and provide a justification. All controls under an unticked Guideline will be marked Not Applicable.</p>
+      <div id="sspa-guidelines-list" role="group" aria-label="ISM Guidelines in scope"></div>
+    </section>
+
+    <!-- Step 3 -->
+    <section id="sspa-generate-section">
+      <h2>Step 3 — Generate</h2>
+      <div id="sspa-generate-error" role="alert" aria-live="assertive" style="display:none; color:#c0392b; font-size:13px; margin-bottom:10px;"></div>
+      <button class="primary" id="btn-sspa-generate">⬇ Download updated SSP-A (.xlsx)</button>
+      <p style="margin:10px 0 0; font-size:12px; color:var(--text-muted);">Controls are marked Not Applicable based on your classification and scope selections. All other controls remain as Not Assessed. The Principles tab is not updated.</p>
+    </section>
+
+  </div><!-- end #sspa-steps -->
+
+<details class="about-section" id="about-section-tab1">
+<summary>About this tool</summary>
+<section class="methodology">
+  <h2>About this tool</h2>
+
+  <details class="method-details">
+    <summary>How this tool works</summary>
+    <p class="method-lead">Load a blank ASD SSP-A template (bundled or your own upload), select your system classification and assessment scope, then download. The tool writes Not Applicable and a standard justification into every control excluded by your classification or scope. The implementation status of all other ISM controls remains as Not Assessed — for you or the IRAP assessor to update manually.</p>
+    <div class="pipeline" role="group" aria-label="Tool pipeline: inputs, process, outputs">
+      <div class="stage inputs">
+        <h4>1. Inputs</h4>
+        <ul>
+          <li><b>SSP-A template</b>: bundled (current quarter, auto-fetched) or your own ASD template</li>
+          <li><b>Classification</b>: NC / OFFICIAL: Sensitive / PROTECTED / SECRET / TOP SECRET</li>
+          <li><b>Scope</b>: which of the 22 ISM Guidelines apply to the assessed system</li>
+        </ul>
+      </div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="stage process">
+        <h4>2. Process</h4>
+        <ul>
+          <li><b>Classification check</b>: any control where the applicability column for your classification is "No" is marked Not Applicable</li>
+          <li><b>Scope check</b>: any control under an unticked Guideline is marked Not Applicable; classification takes precedence where both apply</li>
+          <li><b>Comment written</b>: a standard justification sentence is added to the Comments column for each marked control</li>
+        </ul>
+      </div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="stage outputs">
+        <h4>3. Outputs</h4>
+        <ul>
+          <li><b>Pre-populated SSP-A (.xlsx)</b>: Updated spreadsheet with Not Applicable and justification added; all other ISM controls remain as Not Assessed without any comment</li>
+          <li><b>Principles sheet</b>: not updated; all principles always apply</li>
+          <li><b>Info sheet</b>: not updated; unfortunately, the tool can't always retain the format of the original file</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="method-details">
+    <summary>What this tool does not do</summary>
+    <p>This tool attempts to discern which ISM controls are not applicable to the assessed system. However, it cannot determine whether a control is genuinely applicable or not. You and the assessor still need to:</p>
+    <ul style="padding-left:22px; margin:8px 0 8px;">
+      <li>Assess every remaining control and record whether it is Implemented, Partially Implemented, Planned, or Not Implemented</li>
+      <li>Verify that every Not Applicable decision made here is defensible in the context of the actual system</li>
+      <li>Complete the Principles sheet/tab; it is not modified by this tool</li>
+      <li>Review and adjust scope or classification selections before finalising the SSP-A</li>
+    </ul>
+    <p>Classification and scope selections are guiding principles — the outputs of this tool are starting points, not conclusions.</p>
+  </details>
+
+  <details class="method-details">
+    <summary>Assumptions the tool makes about the template</summary>
+    <table class="method-table" aria-label="Assumptions">
+      <thead>
+        <tr>
+          <th style="width:42%;">Assumption</th>
+          <th>What goes wrong if untrue</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>The template follows the ASD SSP-A structure — a spreadsheet with ISM-XXXX identifiers and NC / OS / P / S / TS applicability columns.</td>
+          <td>Column detection fails and the download button shows an error rather than producing an incorrect file.</td>
+        </tr>
+        <tr>
+          <td>Guideline names in the template match the names shown in the scope checklist exactly.</td>
+          <td>Controls under mismatched Guideline names will not be marked Not Applicable even if the Guideline is unticked.</td>
+        </tr>
+        <tr>
+          <td>The template is blank — Implementation column values are "Not Assessed".</td>
+          <td>Any cells already containing assessment decisions will be overwritten where a classification or scope exclusion applies.</td>
+        </tr>
+      </tbody>
+    </table>
+  </details>
+
+  <details class="method-details">
+    <summary>Disclaimer and limitation of liability</summary>
+    <p style="font-size:13px; margin: 8px 0 4px;">This tool is provided on an <b>&ldquo;as is&rdquo;</b> and <b>&ldquo;as available&rdquo;</b> basis, without warranty of any kind. The output is a <b>decision-support aid, not professional, legal, compliance, assurance or IRAP advice</b>. Every Not Applicable decision produced by this tool must be reviewed and confirmed against the actual system under assessment. You remain solely responsible for the accuracy and defensibility of all Not Applicable determinations and for ensuring the final SSP-A meets your organisation&rsquo;s assurance, accreditation and record-keeping obligations. To the maximum extent permitted by law, <b>in no event shall Cybernion be liable</b> for any direct, indirect, incidental, special, consequential or punitive damages arising from your use of this tool.</p>
+  </details>
+
+  <details class="method-details">
+    <summary>Security and transparency</summary>
+    <p style="margin: 8px 0 6px;">This tool is a single HTML file with no server component, no backend, and no account or login requirement. Everything runs in your browser.</p>
+    <ul style="padding-left:22px; margin:8px 0 10px;">
+      <li><b>No data leaves your machine.</b> Your SSP-A template and all selections are processed entirely in-browser. Nothing is transmitted to any server — not even Cybernion&rsquo;s. The pre-loaded SSP-A template is fetched from a static file host at startup; no other network calls are made.</li>
+      <li><b>Third-party libraries.</b> Two open-source JavaScript libraries are loaded at startup: <a href="https://github.com/gitbrent/xlsx-js-style" target="_blank" rel="noopener">xlsx-js-style v1.2.0</a> (Excel read/write) from jsDelivr, and <a href="https://mozilla.github.io/pdf.js/" target="_blank" rel="noopener">PDF.js v3.11.174</a> (PDF parsing) from Cloudflare CDN. Both are pinned to exact versions with Subresource Integrity (SRI) hashes, so your browser will refuse to run them if the CDN serves a modified file.</li>
+      <li><b>Vulnerability scanning.</b> This html tool and both JavaScript libraries were scanned against public vulnerability databases prior to release. No known vulnerabilities were identified at the versions pinned above.</li>
+      <li><b>Static resource review.</b> The tool and its bundled assets were reviewed as static resources prior to publication. No active content, no dynamic code evaluation, and no third-party tracking scripts are present.</li>
+      <li><b>Source transparency.</b> The full source of this tool is contained in this single HTML file. You can inspect it at any time in your browser&rsquo;s developer tools or by opening the file in a text editor.</li>
+      <li><b>Bundled file integrity.</b> Each time the tool loads, it computes a SHA-256 hash of the bundled SSP-A template in your browser and compares it against a known-good hash embedded in the HTML at release time. A &ldquo;Verified&rdquo; result confirms the file served to you is byte-for-byte identical to the file tested by Cybernion. A mismatch is flagged visibly. The expected hashes are updated in the source with each quarterly release.</li>
+    </ul>
+    <p style="font-size:12px; color:var(--muted);">If you identify a security concern, please contact us through our website <a href="https://cybernion.com.au/" target="_blank" rel="noopener">Cybernion</a>.</p>
+  </details>
+
+  <details class="method-details">
+    <summary>Licence and attribution</summary>
+    <p class="fineprint" style="margin:8px 0 4px;">
+      &copy; 2026 <a href="https://cybernion.com.au/" target="_blank" rel="noopener">Cybernion</a>. Released under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache Licence 2.0</a> &mdash; free to use, copy, modify and redistribute provided you retain this copyright notice, the accompanying <code>NOTICE</code> file, and mark any modified files. &ldquo;ISM&rdquo;, &ldquo;IRAP&rdquo; and related terms refer to work published by the Australian Signals Directorate / ACSC. This tool is an independent utility and is <b>not endorsed by, affiliated with, or sponsored by</b> ASD, ACSC or the Australian Government.
+    </p>
+  </details>
+
+</section>
+</details>
+
+</div><!-- end #tab1-panel -->
+
+<!-- ========== TAB 2: UPDATE SSP-A (existing tool — untouched) ========== -->
+<div id="tab2-panel" role="tabpanel" aria-labelledby="tab-btn-2" class="hidden">
 
 <!-- ========== STEP 1: PRODUCT DETAILS + FILE UPLOAD ========== -->
 <section id="step-inputs">
@@ -721,6 +1072,13 @@
     <span class="bundled-item" id="bundled-ccm-item"><span class="dot"></span><span id="bundled-ccm-label">CCM: loading…</span></span>
     <span class="bundled-item" id="bundled-pdf-item"><span class="dot"></span><span id="bundled-pdf-label">Changes PDF: loading…</span></span>
   </div>
+  <div class="file-version-panel hidden" id="bundled-file-info" aria-live="polite">
+    <div class="fv-heading">Bundled data files</div>
+    <table class="fv-table" aria-label="Bundled file versions">
+      <thead><tr><th>File</th><th>Quarter</th><th>Size</th><th>SHA-256 (first 16 chars)</th><th>Status</th></tr></thead>
+      <tbody id="fv-rows-tab2"></tbody>
+    </table>
+  </div>
 
   <p class="req-legend"><span class="req-mark">*</span> Required.</p>
   <button class="primary" id="btn-compute">Update →</button>
@@ -740,9 +1098,10 @@
   <div class="download-panel" id="download-panel">
     <span class="dl-title">Downloads</span>
     <button class="big-dl" id="btn-export-xlsx"><span class="icon">📊</span> Change Register (.xlsx)</button>
-    <button class="big-dl" id="btn-export-sspa"><span class="icon">📋</span> Updated Baseline (.xlsx)</button>
+    <button class="big-dl" id="btn-export-sspa"><span class="icon">📋</span> Updated SSP-A or CCM (.xlsx)</button>
     <button class="big-dl" id="btn-stakeholder-note"><span class="icon">✉</span> Stakeholder Note</button>
-    <span class="dl-auto-notice">Change Status column is the last column in the Updated Baseline file.</span>
+    <span class="dl-auto-notice">Change Status column is the last column in the Updated SSP-A or CCM file.</span>
+    <span class="dl-auto-notice" style="color:#92400e; background:#fffbeb; border:1px solid #fde68a; border-radius:4px; padding:4px 10px; font-weight:600;">⚠ This tool does not save your work in the browser. Download your files before closing or refreshing this tab.</span>
   </div>
 
 
@@ -841,7 +1200,7 @@
         <ul>
           <li><b>Dashboard</b> — filter and search the delta in your browser</li>
           <li><b>Change Register (.xlsx)</b> — Summary, Controls, Principles, Methodology, E8 Snapshot</li>
-          <li><b>Updated Baseline (.xlsx)</b> — baseline with your triage applied</li>
+          <li><b>Updated SSP-A or CCM (.xlsx)</b> — baseline with your triage applied</li>
           <li><b>Stakeholder note</b> + <b>share summary</b></li>
         </ul>
       </div>
@@ -946,23 +1305,39 @@
 
   <details class="method-details">
     <summary>Disclaimer and limitation of liability</summary>
-    <p style="font-size:13px; margin: 8px 0 4px;">This tool is provided on an <b>&ldquo;as is&rdquo;</b> and <b>&ldquo;as available&rdquo;</b> basis, without warranty of any kind. The output is a <b>decision-support aid, not professional, legal, compliance, assurance or IRAP advice</b>. You remain solely responsible for reviewing each change, confirming every pre-fill, and ensuring the final artefacts meet your organisation&rsquo;s assurance, accreditation and record-keeping obligations. To the maximum extent permitted by law, <b>in no event shall the author be liable</b> for any direct, indirect, incidental, special, consequential or punitive damages arising from your use of this tool.</p>
+    <p style="font-size:13px; margin: 8px 0 4px;">This tool is provided on an <b>&ldquo;as is&rdquo;</b> and <b>&ldquo;as available&rdquo;</b> basis, without warranty of any kind. The output is a <b>decision-support aid, not professional, legal, compliance, assurance or IRAP advice</b>. You remain solely responsible for reviewing each change, confirming every pre-fill, and ensuring the final artefacts meet your organisation&rsquo;s assurance, accreditation and record-keeping obligations. To the maximum extent permitted by law, <b>in no event shall Cybernion be liable</b> for any direct, indirect, incidental, special, consequential or punitive damages arising from your use of this tool.</p>
+  </details>
+
+  <details class="method-details">
+    <summary>Security and transparency</summary>
+    <p style="margin: 8px 0 6px;">This tool is a single HTML file with no server component, no backend, and no account or login requirement. Everything runs in your browser.</p>
+    <ul style="padding-left:22px; margin:8px 0 10px;">
+      <li><b>No data leaves your machine.</b> Your SSP-A, CCM, and all inputs are processed entirely in-browser. Nothing is transmitted to any server &mdash; not even Cybernion&rsquo;s. The pre-loaded CCM and ISM Changes PDF are fetched from a static file host at startup; no other network calls are made.</li>
+      <li><b>Third-party libraries.</b> Two open-source JavaScript libraries are loaded at startup: <a href="https://github.com/gitbrent/xlsx-js-style" target="_blank" rel="noopener">xlsx-js-style v1.2.0</a> (Excel read/write) from jsDelivr, and <a href="https://mozilla.github.io/pdf.js/" target="_blank" rel="noopener">PDF.js v3.11.174</a> (PDF parsing) from Cloudflare CDN. Both are pinned to exact versions with Subresource Integrity (SRI) hashes, so your browser will refuse to run them if the CDN serves a modified file.</li>
+      <li><b>Vulnerability scanning.</b> This html tool and both JavaScript libraries were scanned against public vulnerability databases prior to release. No known vulnerabilities were identified at the versions pinned above.</li>
+      <li><b>Static resource review.</b> The tool and its bundled assets were reviewed as static resources prior to publication. No active content, no dynamic code evaluation, and no third-party tracking scripts are present.</li>
+      <li><b>Source transparency.</b> The full source of this tool is contained in this single HTML file. You can inspect it at any time in your browser&rsquo;s developer tools or by opening the file in a text editor.</li>
+      <li><b>Bundled file integrity.</b> Each time the tool loads, it computes SHA-256 hashes of the bundled CCM and ISM Changes PDF in your browser and compares them against known-good hashes embedded in the HTML at release time. A &ldquo;Verified&rdquo; result confirms the files served to you are byte-for-byte identical to the files tested by Cybernion. A mismatch is flagged visibly. The expected hashes are updated in the source with each quarterly release.</li>
+    </ul>
+    <p style="font-size:12px; color:var(--muted);">If you identify a security concern, please contact us through our website <a href="https://cybernion.com.au/" target="_blank" rel="noopener">Cybernion</a>.</p>
   </details>
 
   <details class="method-details">
     <summary>Licence and attribution</summary>
     <p class="fineprint" style="margin: 8px 0 4px;">
-      &copy; 2026 <a href="https://www.linkedin.com/in/gauravvikash/" target="_blank" rel="noopener">Gaurav Vikash</a>. Released under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache Licence 2.0</a> &mdash; free to use, copy, modify and redistribute provided you retain this copyright notice, the accompanying <code>NOTICE</code> file, and mark any modified files. &ldquo;ISM&rdquo;, &ldquo;Cloud Controls Matrix&rdquo;, &ldquo;Essential Eight&rdquo;, &ldquo;IRAP&rdquo; and related terms refer to work published by the Australian Signals Directorate / ACSC. This tool is an independent utility and is <b>not endorsed by, affiliated with, or sponsored by</b> ASD, ACSC or the Australian Government.
+      &copy; 2026 <a href="https://cybernion.com.au/" target="_blank" rel="noopener">Cybernion</a>. Released under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache Licence 2.0</a> &mdash; free to use, copy, modify and redistribute provided you retain this copyright notice, the accompanying <code>NOTICE</code> file, and mark any modified files. &ldquo;ISM&rdquo;, &ldquo;Cloud Controls Matrix&rdquo;, &ldquo;Essential Eight&rdquo;, &ldquo;IRAP&rdquo; and related terms refer to work published by the Australian Signals Directorate / ACSC. This tool is an independent utility and is <b>not endorsed by, affiliated with, or sponsored by</b> ASD, ACSC or the Australian Government.
     </p>
   </details>
 </section>
 </details>
 
+</div><!-- end #tab2-panel -->
+
 <footer role="contentinfo">
   <div class="foot-row">
-    <span class="brand">ISM Pulse - A Quarterly Change Review Tool</span>
+    <span class="brand">IRAP Pulse - Be IRAP Ready. Always.</span>
     <span class="foot-links">
-      <a href="https://www.linkedin.com/in/gauravvikash/" target="_blank" rel="noopener">Built by Gaurav Vikash</a>
+      <a href="https://cybernion.com.au/" target="_blank" rel="noopener">© 2026 Cybernion</a>
       <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache Licence 2.0</a>
       <a href="https://www.cyber.gov.au" target="_blank" rel="noopener">cyber.gov.au</a>
     </span>
@@ -993,7 +1368,7 @@
 
 <script>
 /* ============================================================================
-   ISM Pulse - A Quarterly Change Review Tool
+   IRAP Pulse - Be IRAP Ready. Always.
    Pure client-side. Dependencies: SheetJS (xlsx), pdf.js.
    ============================================================================ */
 
@@ -1036,11 +1411,7 @@ const state = {
   drift: null,                  // { items: [{ id, kind, sspa, ccm }], count } — applicability drift between SSP-A and CCM
   collapsedGuidelines: new Set(),  // which Guideline groups are currently collapsed
   overrideFileTypeCheck: false,    // user clicked "Proceed anyway" on a swap-warning
-  // Comparison mode. 'ccm-vs-sspa' (default): baseline is the product SSP-A,
-  // enrichment + Updated baseline export happen as normal. 'ccm-vs-ccm': baseline
-  // is a prior-quarter CCM, SSP-A-specific validations + scoping pre-fill are
-  // skipped, and the Updated baseline download is hidden.
-  compareMode: 'ccm-vs-sspa',
+
 };
 
 // ---- Helpers ---------------------------------------------------------------
@@ -1839,8 +2210,7 @@ function findPossibleRescissionPairs(delta) {
 //   - Skip rows where either side has no applicability tokens at all (we
 //     can't reason about "blank vs non-blank" drift — lots of SSP-As omit
 //     the column entirely and we don't want to flood the reviewer).
-//   - Skip in ccm-vs-ccm mode (neither side is an SSP-A, so "drift" doesn't
-//     have the same SSP-A-is-stale meaning).
+//   - Skip if drift comparison is not applicable (baseline is not an SSP-A).
 //
 // Known ASD classification column renames across CCM releases.
 // If the ONLY difference between baseline and current CCM applicability is
@@ -1857,7 +2227,6 @@ function applyKnownRenames(tokenSet) {
 //           schemaMigrations: [{ id, kind, sspa, ccm }], migrationCount } or null if skipped.
 function computeApplicabilityDrift(groups, opts) {
   opts = opts || {};
-  if (opts.compareMode === 'ccm-vs-ccm') return null;
   const items = [];
   const schemaMigrations = [];
   groups.forEach(({ kind, ccmRows, sspaRows }) => {
@@ -1904,6 +2273,74 @@ function updateStatus(id, text, cls) {
   el.className = 'file-status' + (cls ? ' ' + cls : '');
 }
 
+// ---- File version helpers -------------------------------------------------
+// Expected SHA-256 hashes of the bundled data files for this release.
+// Update these constants whenever the bundled files are replaced for a new quarter.
+// Generate with: sha256sum ccm-current.xlsx ism-changes-current.pdf sspa-template-current.xlsx
+const BUNDLED_FILE_HASHES = {
+  'ccm-current.xlsx':           '324e89a3077f4aee9bef632f2a77c778941947ec75e41d439cd24318e0e3d93e',
+  'ism-changes-current.pdf':    '4780b0c27a1faf766f3e117a11bfc2800deb409228ea7f2903cb60f5379ee4b9',
+  'sspa-template-current.xlsx': 'd85eb4ca2a0d581ec9c93bed7242495b638db5736d2715b511e85dab8b128e57',
+};
+
+// Returns the full 64-char hex SHA-256 of an ArrayBuffer, or null if
+// crypto.subtle is unavailable (non-secure context such as plain file://).
+async function sha256hex(buffer) {
+  try {
+    const digest = await crypto.subtle.digest('SHA-256', buffer);
+    return Array.from(new Uint8Array(digest))
+      .map(b => b.toString(16).padStart(2, '0'))
+      .join('');
+  } catch {
+    return null;
+  }
+}
+
+function fmtBytes(n) {
+  if (n >= 1048576) return `${(n / 1048576).toFixed(2)} MB`;
+  return `${(n / 1024).toFixed(1)} KB`;
+}
+
+// Build a single <tr> for the file version table.
+// fullHash: full 64-char hex SHA-256, or null if crypto.subtle was unavailable.
+// expectedHash: value from BUNDLED_FILE_HASHES, or null for user-uploaded files.
+function fvRow(filename, quarter, bytes, fullHash, expectedHash) {
+  let statusCell;
+  if (!bytes) {
+    statusCell = `<span class="fv-warn">⚠ Unavailable</span>`;
+  } else if (fullHash === null) {
+    statusCell = `<span class="fv-warn">⚠ crypto.subtle unavailable — cannot verify</span>`;
+  } else if (expectedHash === null) {
+    // User-uploaded file — no reference hash to compare against.
+    statusCell = `<span class="fv-ok">✓ Loaded</span>`;
+  } else if (fullHash === expectedHash) {
+    statusCell = `<span class="fv-ok">✓ Verified</span>`;
+  } else {
+    statusCell = `<span class="fv-warn">⚠ Hash mismatch — file may have been modified</span>`;
+  }
+
+  const hashCell = fullHash
+    ? `<code class="fv-hash">${fullHash.slice(0, 16)}&hellip;</code>`
+    : `<span style="color:var(--text-muted)">—</span>`;
+
+  return `<tr>
+    <td><code>${filename}</code></td>
+    <td>${quarter || '—'}</td>
+    <td>${bytes !== null ? fmtBytes(bytes) : '—'}</td>
+    <td>${hashCell}</td>
+    <td>${statusCell}</td>
+  </tr>`;
+}
+
+// Populate a file-version panel and make it visible.
+function showFileVersionPanel(panelId, tbodyId, rows) {
+  const tbody = $(tbodyId);
+  const panel = $(panelId);
+  if (!tbody || !panel) return;
+  tbody.innerHTML = rows.join('');
+  panel.classList.remove('hidden');
+}
+
 // ---- Bundled file fetch ---------------------------------------------------
 function updateBundledStatus(ccmOk, pdfOk, ccmMsg, pdfMsg) {
   const ccmEl  = $('bundled-ccm-item');
@@ -1929,7 +2366,7 @@ async function fetchBundledFiles() {
   if (ccmResult.status === 'rejected') {
     state.bundled.status = 'error';
     updateBundledStatus(false, null, `CCM: failed — ${ccmResult.reason?.message || ccmResult.reason}`, 'Changes PDF: skipped');
-    console.warn('[ISM Pulse] CCM fetch failed:', ccmResult.reason);
+    console.warn('[IRAP Pulse] CCM fetch failed:', ccmResult.reason);
     checkReady();
     return;
   }
@@ -1939,8 +2376,23 @@ async function fetchBundledFiles() {
   const pdfBuf = pdfResult.status === 'fulfilled' ? pdfResult.value : null;
 
   // Detect quarter label from the CCM sheet name.
-  const ccmWb = parseXLSXFromBuffer(ccmBuf);
-  const sheets = findReviewSheets(ccmWb);
+  let ccmWb, sheets;
+  try {
+    ccmWb  = parseXLSXFromBuffer(ccmBuf);
+    sheets = findReviewSheets(ccmWb);
+  } catch (parseErr) {
+    state.bundled.status = 'error';
+    updateBundledStatus(false, null, `CCM: file loaded but could not be parsed — ${parseErr.message || parseErr}`, 'Changes PDF: skipped');
+    console.warn('[IRAP Pulse] CCM parse failed:', parseErr);
+    checkReady();
+    return;
+  }
+  if (!sheets.control && !sheets.principle) {
+    state.bundled.status = 'error';
+    updateBundledStatus(false, null, 'CCM: loaded but no Controls or Principles sheet found — please check the bundled CCM file.', 'Changes PDF: skipped');
+    checkReady();
+    return;
+  }
   const sheetName = sheets.control || sheets.principle || '';
   const qShort = quarterFromSheetName(sheetName);
   const qLabel = qShort ? quarterLong(qShort) : 'current quarter';
@@ -1951,11 +2403,26 @@ async function fetchBundledFiles() {
   state.bundled.status        = 'ready';
 
   const pdfStatusText = pdfBuf
-    ? 'Changes PDF: loaded ✓'
+    ? `Changes PDF: ${qLabel} ✓`
     : `Changes PDF: unavailable — rescission reasons will not be shown`;
   updateBundledStatus(true, !!pdfBuf, `CCM: ${qLabel} ✓`, pdfStatusText);
 
-  if (!pdfBuf) console.warn('[ISM Pulse] Changes PDF fetch failed:', pdfResult.reason);
+  if (!pdfBuf) console.warn('[IRAP Pulse] Changes PDF fetch failed:', pdfResult.reason);
+
+  // Compute SHA-256 hashes, compare against expected, and populate the file-version panel.
+  const [ccmHash, pdfHash] = await Promise.all([
+    sha256hex(ccmBuf),
+    pdfBuf ? sha256hex(pdfBuf) : Promise.resolve(null),
+  ]);
+  const rows = [
+    fvRow('ccm-current.xlsx', qLabel, ccmBuf.byteLength, ccmHash, BUNDLED_FILE_HASHES['ccm-current.xlsx']),
+  ];
+  if (pdfBuf) {
+    rows.push(fvRow('ism-changes-current.pdf', qLabel, pdfBuf.byteLength, pdfHash, BUNDLED_FILE_HASHES['ism-changes-current.pdf']));
+  } else {
+    rows.push(fvRow('ism-changes-current.pdf', qLabel, null, null, BUNDLED_FILE_HASHES['ism-changes-current.pdf']));
+  }
+  showFileVersionPanel('bundled-file-info', 'fv-rows-tab2', rows);
 
   checkReady();
 }
@@ -2122,11 +2589,14 @@ fetchBundledFiles();
 
 ['org-name','product-name','product-classification','product-overview'].forEach(id => {
   $(id).addEventListener('input', (e) => {
-    const key = id.replace('product-','');
-    const mapKey = key === 'classification' ? 'classification' : (key === 'name' ? 'name' : 'overview');
+    // Map each input id to its state.product key explicitly.
+    // Previously the implicit replace('product-','') left 'org-name' mapping to
+    // 'overview' (the catch-all branch), silently clobbering the wrong field.
+    const mapKey = id === 'org-name'               ? 'organisation'
+                 : id === 'product-name'           ? 'name'
+                 : id === 'product-classification' ? 'classification'
+                 :                                   'overview';
     state.product[mapKey] = e.target.value;
-    // Refresh the compute-button's ready-state tooltip + visual hint so the
-    // reviewer sees "not-ready" fade away as soon as they fill in a field.
     checkReady();
   });
 });
@@ -2134,17 +2604,6 @@ fetchBundledFiles();
 // Initial pass so the button starts in the correct state.
 checkReady();
 
-// ---- Comparison mode (ccm-vs-sspa | ccm-vs-ccm) ---------------------------
-// The tool supports two comparison modes:
-//   ccm-vs-sspa — original behaviour: the baseline is the product's SSP-A,
-//                 so we can enrich with scoping and emit an Updated baseline.
-//   ccm-vs-ccm  — the baseline is a prior-quarter CCM. This is useful for
-//                 cross-quarter trend analysis, or for catching up when a
-//                 quarter's review was skipped. No scoping available, so we
-//                 hide the Updated baseline download and skip SSP-A-specific
-//                 validation / pre-fill rules.
-// The mode is also persisted/rehydrated with the saved-session .json.
-// compareMode is always 'ccm-vs-sspa' — toggle removed from UI.
 
 // Override flag — when the user has clicked "Proceed anyway" on a file-type
 // warning, skip the soft swap-detection check for the rest of this session.
@@ -2169,7 +2628,6 @@ $('btn-compute').addEventListener('click', async () => {
     // Mandatory-field errors CANNOT be overridden via "Proceed anyway".
     // They must be fixed. This covers all three product-detail fields and
     // both required file slots (CCM + baseline).
-    const baselineLabel = 'baseline file';
     const hardErrors = validateProductDetails().map(e => e.msg);
     if (state.bundled.status !== 'ready') hardErrors.push('The bundled CCM and Changes PDF have not loaded yet. If this error persists, check your network connection and reload the page.');
     if (!state.files.sspa) hardErrors.push('Your SSP-A or CCM (.xlsx) is required. Please upload it before running an update.');
@@ -2263,13 +2721,21 @@ $('btn-compute').addEventListener('click', async () => {
     state.parsed.sspaRows = [].concat(state.parsed.byKind.control.sspaRows, state.parsed.byKind.principle.sspaRows);
 
     // Capture live product details (user may not have blurred inputs yet)
+    state.product.organisation   = $('org-name').value;
     state.product.name           = $('product-name').value;
     state.product.classification = $('product-classification').value;
     state.product.overview       = $('product-overview').value;
 
-    // Parse Changes PDF from the bundled server-side ArrayBuffer
+    // Parse Changes PDF from the bundled server-side ArrayBuffer.
+    // PDF is optional enrichment — if pdf.js or parsing fails, the delta still
+    // runs; only rescission reasons are skipped.
     if (state.bundled.changesBuffer) {
-      state.parsed.changesText = await parsePDFFromBuffer(state.bundled.changesBuffer);
+      try {
+        state.parsed.changesText = await parsePDFFromBuffer(state.bundled.changesBuffer);
+      } catch (pdfErr) {
+        console.warn('[IRAP Pulse] PDF parsing failed — rescission reasons will not be shown:', pdfErr);
+        state.parsed.changesText = '';
+      }
     }
 
     // Compute delta across all groups
@@ -2281,7 +2747,7 @@ $('btn-compute').addEventListener('click', async () => {
     // This surfaces cases where ASD widened or narrowed classification coverage
     // without the control text itself changing — a drift the normal delta
     // wouldn't otherwise catch. Skipped in CCM-vs-CCM mode (see helper comment).
-    state.drift = computeApplicabilityDrift(groups, { compareMode: state.compareMode });
+    state.drift = computeApplicabilityDrift(groups);
 
     // Enrich rescinded items with the ASD explanation from the Changes PDF
     // (if provided). Kept as a post-pass so the core delta logic stays focused
@@ -2412,6 +2878,7 @@ function renderMeta() {
   const p = state.product;
   const pq = state.parsed;
   const parts = [];
+  if (p.organisation) parts.push(`<span>Organisation: <b>${escapeHtml(p.organisation)}</b></span>`);
   if (p.name) parts.push(`<span>Product: <b>${escapeHtml(p.name)}</b></span>`);
   if (p.classification) parts.push(`<span>Information Classification: <b>${escapeHtml(p.classification)}</b></span>`);
   parts.push(`<span>Target quarter: <b>${quarterLong(pq.targetQuarter)}</b></span>`);
@@ -2749,7 +3216,6 @@ function renderTable() {
 function rowHtml(d) {
   const t = state.triage[d.id];
   const changeClass = d.changeType.toLowerCase();
-  const triageClass = t.triage ? 'triage-' + (t.triage === 'Action Required' ? 'action' : (t.triage === 'Monitor' ? 'monitor' : 'none')) : '';
 
   const oldHtml = d.changeType === 'New' ? `<em class="label-inline">New control</em>` :
     `<span class="label-inline">Old (${quarterLong(state.parsed.baselineQuarter)})</span><span class="diff-old">${escapeHtml(d.oldText)}</span>`;
@@ -2981,7 +3447,7 @@ function exportXlsx() {
 
   const wb = XLSX.utils.book_new();
 
-  // Embed workbook-level metadata so the author attribution and licence
+  // Embed workbook-level metadata so Cybernion attribution and licence
   // travel with every exported xlsx. SheetJS / xlsx-js-style writes these
   // into the workbook's core-properties part, where they show up under
   // File → Info → Properties in Excel and as <cp:coreProperties> in the
@@ -2991,12 +3457,12 @@ function exportXlsx() {
   Object.assign(wb.Props, {
     Title:       'ISM Quarterly Change Register',
     Subject:     'ASD ISM quarterly delta, pre-filled scoping and Essential Eight evidence lineage',
-    Author:      'Gaurav Vikash',
-    Manager:     'Gaurav Vikash',
-    Company:     'Independent — https://www.linkedin.com/in/gauravvikash/',
+    Author:      'Cybernion',
+    Manager:     'Cybernion',
+    Company:     'Independent — https://cybernion.com.au/',
     Category:    'Security assurance',
     Keywords:    'ISM, ACSC, ASD, Cloud Controls Matrix, SSP-A, IRAP, Essential Eight, quarterly review',
-    Comments:    '© 2026 Gaurav Vikash. Generated by the ISM Quarterly Review Tool. Licensed under the Apache Licence 2.0 — https://www.apache.org/licenses/LICENSE-2.0. Redistributions must retain this attribution and the accompanying NOTICE file. Decision-support artefact only; not IRAP advice.',
+    Comments:    '© 2026 Cybernion. Generated by the IRAP Pulse. Licensed under the Apache Licence 2.0 — https://www.apache.org/licenses/LICENSE-2.0. Redistributions must retain this attribution and the accompanying NOTICE file. Decision-support artefact only; not IRAP advice.',
     CreatedDate: new Date(),
   });
 
@@ -3027,6 +3493,7 @@ function exportXlsx() {
   const summaryRows = [
     ['ISM Quarterly Change Register'],                    // R0 title
     [],
+    ['Organisation',            p.organisation || ''],
     ['Product',                 p.name || ''],
     ['Information Classification', p.classification || ''],
     ['Target quarter',          quarterLong(pq.targetQuarter)],
@@ -3057,12 +3524,9 @@ function exportXlsx() {
   // Possible rescission + re-issue pairs — soft hint only, heuristic similarity
   // score on topic + text between rescinded and new items of the same kind.
   const pairsForSheet = state.possiblePairs;
-  const pairsHeadRow = summaryRows.length + 1;   // 0-indexed after next push
-  let pairsHeaderRow = null;
   summaryRows.push([]);
   summaryRows.push(['Possible rescission + re-issue pairs (heuristic — reviewer confirms)']);
   if (pairsForSheet && pairsForSheet.count > 0) {
-    pairsHeaderRow = summaryRows.length;         // the header row we're about to push
     summaryRows.push(['Rescinded ID', 'New ID', 'Similarity / shared terms']);
     pairsForSheet.items.slice(0, 25).forEach(p => {
       summaryRows.push([
@@ -3078,7 +3542,7 @@ function exportXlsx() {
     summaryRows.push(['None detected. Reviewer should still scan Rescinded ↔ New by eye for same-requirement re-issues.']);
   }
   summaryRows.push([]);
-  summaryRows.push(['Generated by', 'ISM Quarterly Review Tool — built by Gaurav Vikash (https://www.linkedin.com/in/gauravvikash/)']);
+  summaryRows.push(['Generated by', 'IRAP Pulse — built by Cybernion (https://cybernion.com.au/)']);
   const wsSummary = XLSX.utils.aoa_to_sheet(summaryRows);
   wsSummary['!cols'] = [{ wch: 28 }, { wch: 14 }, { wch: 90 }];
   // Row heights: auto-size rows so long ID lists in column C (which wrap
@@ -3565,10 +4029,8 @@ async function exportUpdatedSSPA() {
   // or "Pivotal Decisions". Hidden tabs matching these names are also dropped
   // — their contents would be just as stale.
   const DROP_SHEET_RE = /^\s*(info(rmation)?|pivot)\b/i;
-  const droppedSheets = new Set();
   wb.SheetNames.slice().forEach(n => {
     if (DROP_SHEET_RE.test(n)) {
-      droppedSheets.add(n);
       delete wb.Sheets[n];
       wb.SheetNames = wb.SheetNames.filter(s => s !== n);
       if (wb.Workbook && Array.isArray(wb.Workbook.Sheets)) {
@@ -3602,6 +4064,28 @@ async function exportUpdatedSSPA() {
   // range-scoped metadata like !outline can also point at invalid rows —
   // leave the user-sheet !ref alone, it's already refreshed on our review
   // sheets and harmless on pass-throughs (Cover, hidden notes, etc.).
+
+  // Apply wrapText + centre-left alignment to all remaining pass-through sheets
+  // (any sheet that is not a Controls or Principles review sheet). Info/Pivot
+  // tabs have already been dropped above, so this only touches user-added tabs
+  // like Cover sheets, custom summaries, etc.
+  {
+    const passStyle = {
+      font:      { name: 'Calibri', sz: 11 },
+      alignment: { wrapText: true, vertical: 'center', horizontal: 'left' },
+    };
+    wb.SheetNames.forEach(name => {
+      // Skip the review sheets — updateReviewSheet already styled them fully.
+      if (/^(Controls|Principles)\b/i.test(name.trim())) return;
+      const wss = wb.Sheets[name];
+      if (!wss) return;
+      Object.keys(wss).forEach(key => {
+        if (key[0] === '!') return; // skip !ref, !cols, !rows, etc.
+        const cell = wss[key];
+        if (cell && cell.t) cell.s = { ...passStyle };
+      });
+    });
+  }
 
   const xlsxArray = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
   const blob = new Blob([xlsxArray], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
@@ -3669,15 +4153,6 @@ function updateReviewSheet(wb, sheetName, kind, bundle, systemClass, opts) {
   }
 
   // Seed comments by Guideline for the classification-NA auto-comment.
-  const commentsByGuideline = {};
-  if (commentCol !== -1 && gdlCol !== -1) {
-    dataRows.forEach(r => {
-      const g = r && r[gdlCol] != null ? String(r[gdlCol]).trim() : '';
-      const c = r && r[commentCol] != null ? String(r[commentCol]).trim() : '';
-      if (g && c && !commentsByGuideline[g]) commentsByGuideline[g] = c;
-    });
-  }
-
   // CCM header map (normalised key → original key) for populating new rows.
   const ccmHeaderMap = {};
   if (bundle.ccmRows.length) {
@@ -3756,10 +4231,6 @@ function updateReviewSheet(wb, sheetName, kind, bundle, systemClass, opts) {
 
   // Schema migration: rename old column labels to match current CCM naming.
   // E.g., older CCMs used "All" for what is now "NC" (not classified).
-  // We rename these in the output header row and colour those header cells
-  // so the reviewer can see which columns were silently renamed.
-  // Schema migration: rename old column labels to match current CCM naming.
-  // E.g., older CCMs used "All" for what is now "NC" (not classified).
   // Renamed columns are colour-coded in the header row of the output file.
   const SCHEMA_HEADER_RENAMES = { 'All': 'NC', 'ALL': 'NC' };
   const renamedColIndices = new Set();
@@ -3829,15 +4300,16 @@ function updateReviewSheet(wb, sheetName, kind, bundle, systemClass, opts) {
         continue;
       }
       // Apply base alignment to every data cell — left, vertically centred, word-wrapped.
-      // Colour fill is applied only to cells that changed.
+      // Colour fill is applied only to cells that changed. All data cells get borders.
       const baseAlign = { horizontal: 'left', vertical: 'center', wrapText: true };
       const baseFont  = { name: 'Calibri', sz: 11 };
+      const baseBorder = { top: THIN, bottom: THIN, left: THIN, right: THIN };
       if (!cellsToColour.has(`${R},${C}`)) {
-        newWs[addr].s = { alignment: baseAlign, font: baseFont };
+        newWs[addr].s = { alignment: baseAlign, font: baseFont, border: baseBorder };
         continue;
       }
       const rowKind = rowKinds[R - 1] || 'retained';
-      const style = { alignment: baseAlign, font: { ...baseFont } };
+      const style = { alignment: baseAlign, font: { ...baseFont }, border: baseBorder };
       if (C === statusColIdx) {
         style.fill = { patternType: 'solid', fgColor: { rgb: statusFillByKind[rowKind] || 'F2F2F2' } };
         style.font.bold = true;
@@ -3853,7 +4325,7 @@ function updateReviewSheet(wb, sheetName, kind, bundle, systemClass, opts) {
   newWs['!cols'] = finalHeaders.map((h, i) => ({
     wch: i === statusColIdx ? 14 : Math.max(14, Math.min(60, String(h).length + 4)),
   }));
-  newWs['!rows'] = finalAoa.map((_, i) => ({ hpt: i === 0 ? 30 : 60 }));
+  newWs['!rows'] = []; // no fixed heights — Excel auto-fits rows to wrapText content on open
   newWs['!autofilter'] = { ref: `A1:${XLSX.utils.encode_col(finalHeaders.length - 1)}${finalAoa.length}` };
 
   wb.Sheets[sheetName] = newWs;
@@ -3948,7 +4420,8 @@ function buildStakeholderNote() {
   })();
 
   const lines = [];
-  lines.push(`Subject: ${productLbl} — ISM ${target} review summary`);
+  const orgLbl = p.organisation ? ` (${p.organisation})` : '';
+  lines.push(`Subject: ${productLbl}${orgLbl} — ISM ${target} review summary`);
   lines.push('');
   lines.push(`Hi team,`);
   lines.push('');
@@ -4112,6 +4585,780 @@ function runStartupSelfTest() {
 }
 // Defer until next tick so browser can paint the pending pill first.
 setTimeout(runStartupSelfTest, 0);
+
+/* ============================================================================
+   TAB 1 — Create SSP-A
+   Pure client-side. Reads an ASD SSP-A template (.xlsx), marks controls Not
+   Applicable based on classification + scope selections, and triggers download.
+   ============================================================================ */
+
+const SSPA_TEMPLATE_URL = './sspa-template-current.xlsx';
+
+// Classification → short column name in the Controls sheet
+const SSPA_CLASS_COL = {
+  'NC':               'NC',
+  'OFFICIAL:Sensitive': 'OS',
+  'PROTECTED':        'P',
+  'SECRET':           'S',
+  'TOP SECRET':       'TS',
+};
+
+// Human-readable display label used in comment text
+const SSPA_CLASS_DISPLAY = {
+  'NC':               'NC',
+  'OFFICIAL:Sensitive': 'OFFICIAL: Sensitive',
+  'PROTECTED':        'PROTECTED',
+  'SECRET':           'SECRET',
+  'TOP SECRET':       'TOP SECRET',
+};
+
+// Tab 1 runtime state — separate from Tab 2's `state` object
+const sspaState = {
+  workbook:        null,  // XLSX workbook object (from bundled fetch or upload)
+  guidelineStates: {},    // guidelineName → { checked: bool, justification: string }
+};
+
+// ---- 22 Guidelines ---------------------------------------------------------
+// name must match exactly what appears in the SSP-A Controls sheet Guideline column.
+// preticked: true = pre-checked (but user can untick). false = unchecked by default.
+const SSPA_GUIDELINES = [
+  {
+    name: 'Guidelines for cyber security roles',
+    preticked: true,
+    pretickReason: 'Board and executive accountability for cyber security applies to every organisation regardless of size or system type — a team, committee, or individual can fulfil the intent.',
+    description: 'Establishes who is accountable for cyber security across the organisation. Covers board and executive responsibilities, the CISO role, and how cyber security duties are defined, delegated, and reported on.',
+  },
+  {
+    name: 'Guidelines for cyber security incidents',
+    preticked: true,
+    pretickReason: 'All systems must be capable of detecting, reporting, and responding to incidents — this applies regardless of architecture or classification.',
+    description: 'Covers how the organisation detects, reports, contains, and learns from cyber security incidents. Includes establishing an incident response plan, notifying affected parties, and conducting post-incident reviews.',
+  },
+  {
+    name: 'Guidelines for procurement and outsourcing',
+    preticked: false,
+    description: 'Addresses security risk introduced by third-party products, services, and cloud platforms. Covers supply chain risk management, contractual security obligations, and ongoing vendor assurance activities.',
+  },
+  {
+    name: 'Guidelines for cyber security documentation',
+    preticked: true,
+    pretickReason: 'All assessed systems must have documented security posture — a system security plan and risk assessment are baseline requirements for IRAP.',
+    description: 'Sets out what security documentation must exist and be kept current. Includes the system security plan, risk assessments, standard operating procedures, and records of security decisions and exceptions.',
+  },
+  {
+    name: 'Guidelines for physical security',
+    preticked: false,
+    description: 'Physical protection of facilities, equipment, and media. Covers access controls to server rooms and data centres, visitor management, secure cabling, and procedures for hardware disposal and decommissioning.',
+  },
+  {
+    name: 'Guidelines for personnel security',
+    preticked: true,
+    pretickReason: 'Pre-employment vetting, security awareness training, and access controls are universal requirements for any system with human users.',
+    description: 'Controls around who can access systems and what checks are performed before and during employment. Covers pre-employment screening, security training, user agreements, privileged user obligations, and revoking access when people leave.',
+  },
+  {
+    name: 'Guidelines for communications infrastructure',
+    preticked: false,
+    description: 'Security of the physical and logical communications infrastructure — network cabling, switching, routing, and telephony hardware. Covers equipment hardening, physical port security, and protection from unauthorised access or tampering.',
+  },
+  {
+    name: 'Guidelines for communications systems',
+    preticked: false,
+    description: 'Security of voice, video, and unified communications platforms. Covers secure conferencing, VoIP security, and controls over which communication tools are authorised for discussing sensitive information.',
+  },
+  {
+    name: 'Guidelines for enterprise mobility',
+    preticked: false,
+    description: 'Managing security for mobile devices — phones, tablets, and laptops — used to access corporate resources. Covers MDM, remote wipe, device encryption, and acceptable use policies for corporate and personal devices.',
+  },
+  {
+    name: 'Guidelines for evaluated products',
+    preticked: false,
+    description: 'Use of products that have undergone formal government security evaluation (such as Common Criteria). Most relevant when handling classified information, where evaluated firewalls, cryptographic modules, or access control systems may be mandated.',
+  },
+  {
+    name: 'Guidelines for information technology equipment',
+    preticked: false,
+    description: 'Physical and logical security of IT hardware assets including servers, workstations, and peripherals. Covers asset registers, equipment labelling, controls on connecting unapproved hardware, and secure end-of-life disposal.',
+  },
+  {
+    name: 'Guidelines for media',
+    preticked: false,
+    description: 'Security controls for removable storage media such as USB drives, portable hard drives, and optical disks. Covers sanitisation and destruction requirements, labelling of classified media, and controls on whether removable media is permitted in the environment.',
+  },
+  {
+    name: 'Guidelines for system hardening',
+    preticked: true,
+    pretickReason: 'Applies to any system with a configurable operating system, application, or device — reducing the attack surface is a universal technical requirement.',
+    description: 'Technical controls to reduce the attack surface of operating systems, applications, and devices. Includes disabling unneeded services and features, applying vendor hardening guides, patching, and removing default accounts and credentials.',
+  },
+  {
+    name: 'Guidelines for system management',
+    preticked: true,
+    pretickReason: 'Day-to-day operational security — patch management, privileged access management, change control — applies to all managed systems.',
+    description: 'Ongoing operational security controls for managing systems day-to-day. Covers patch and vulnerability management, privileged access management, change and configuration management, logging, monitoring, and backups.',
+  },
+  {
+    name: 'Guidelines for security assurance',
+    preticked: true,
+    pretickReason: 'Verification that controls are working as intended is required for all assessed systems — it is foundational to the IRAP process.',
+    description: 'Requirements to assess and verify that security controls are operating effectively. Includes vulnerability scanning, penetration testing, review of security event logs, and ongoing monitoring activities that confirm the system remains secure over time.',
+  },
+  {
+    name: 'Guidelines for software development',
+    preticked: true,
+    pretickReason: 'Applies wherever software is developed, configured, or customised — covering the vast majority of assessed systems.',
+    description: 'Secure software development practices for code built or customised by the organisation or its suppliers. Covers threat modelling, code review, security testing, dependency management, and secure deployment practices.',
+  },
+  {
+    name: 'Guidelines for database systems',
+    preticked: true,
+    pretickReason: 'Applies to any system that stores or retrieves structured data — effectively universal for enterprise systems.',
+    description: 'Securing databases and the information they hold. Covers access controls and privilege separation, database activity auditing, encryption at rest, hardening database configurations, and controls to prevent injection attacks.',
+  },
+  {
+    name: 'Guidelines for email',
+    preticked: false,
+    description: 'Security controls for email systems and usage. Covers anti-spoofing protections (SPF, DKIM, DMARC), inbound and outbound content filtering, secure email gateways, controls on sending sensitive information via email, and phishing awareness.',
+  },
+  {
+    name: 'Guidelines for networking',
+    preticked: true,
+    pretickReason: 'All networked systems must implement network security controls — segmentation, filtering, and monitoring apply universally.',
+    description: 'Network architecture and traffic security controls. Covers network segmentation and segregation, firewall and ACL management, network monitoring and intrusion detection, secure remote access (VPN), and DNS security.',
+  },
+  {
+    name: 'Guidelines for cryptography',
+    preticked: true,
+    pretickReason: 'Encryption requirements for data at rest and in transit apply to all systems — algorithm selection and key management requirements are universal.',
+    description: 'Use of cryptography to protect information confidentiality, integrity, and authenticity. Covers approved algorithm selection, key management and lifecycle, TLS configuration, and use of cryptographic products for classified systems.',
+  },
+  {
+    name: 'Guidelines for gateways',
+    preticked: false,
+    description: 'Security controls at the boundary between networks of different trust levels or security domains. Covers web proxies, mail gateways, data diodes, cross-domain solutions, and configurations required when connecting networks at different classification levels.',
+  },
+  {
+    name: 'Guidelines for data transfers',
+    preticked: true,
+    pretickReason: 'All systems that send or receive data must implement controls over how data moves — this covers effectively every networked system.',
+    description: 'Controls governing the movement of data between systems, networks, or organisations. Covers approved transfer mechanisms, content inspection and filtering, controls on data leaving the assessed environment, and logging of significant transfer events.',
+  },
+];
+
+// ---- Tab switching ---------------------------------------------------------
+function switchTab(tab) {
+  const btn1 = $('tab-btn-1'), btn2 = $('tab-btn-2');
+  const p1 = $('tab1-panel'), p2 = $('tab2-panel');
+  const about1 = $('about-section-tab1'), about2 = $('about-section');
+  if (tab === 1) {
+    btn1.classList.add('active');    btn1.setAttribute('aria-selected','true');  btn1.tabIndex = 0;
+    btn2.classList.remove('active'); btn2.setAttribute('aria-selected','false'); btn2.tabIndex = -1;
+    p1.classList.remove('hidden');
+    p2.classList.add('hidden');
+    if (about1) about1.style.display = '';
+    if (about2) about2.style.display = 'none';
+  } else {
+    btn2.classList.add('active');    btn2.setAttribute('aria-selected','true');  btn2.tabIndex = 0;
+    btn1.classList.remove('active'); btn1.setAttribute('aria-selected','false'); btn1.tabIndex = -1;
+    p2.classList.remove('hidden');
+    p1.classList.add('hidden');
+    if (about1) about1.style.display = 'none';
+    if (about2) about2.style.display = '';
+  }
+}
+$('tab-btn-1').addEventListener('click', () => switchTab(1));
+$('tab-btn-2').addEventListener('click', () => switchTab(2));
+// Arrow key navigation between tabs (ARIA authoring practice)
+$('tab-btn-1').addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') { switchTab(2); $('tab-btn-2').focus(); } });
+$('tab-btn-2').addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft')  { switchTab(1); $('tab-btn-1').focus(); } });
+
+// ---- Helper — HTML escape -------------------------------------------------
+function escHtml(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ---- Helper — find controls sheet (content-based) -------------------------
+// Returns the sheet name of the controls sheet, or null.
+function findSSPAControlsSheet(wb) {
+  for (const name of wb.SheetNames) {
+    const ws = wb.Sheets[name];
+    if (!ws) continue;
+    const aoa = XLSX.utils.sheet_to_json(ws, { header: 1, defval: null });
+    for (let i = 0; i < Math.min(aoa.length, 8); i++) {
+      const headers = (aoa[i] || []).map(c => canonicaliseHeader(c));
+      if (headers.includes('Identifier') && (headers.includes('Guideline') || headers.includes('Section'))) {
+        return name;
+      }
+    }
+  }
+  return null;
+}
+
+// ---- Helper — column-letter from 0-based index ----------------------------
+function colLetter(n) {
+  let s = ''; n++;
+  while (n > 0) { const r = (n - 1) % 26; s = String.fromCharCode(65 + r) + s; n = Math.floor((n - 1) / 26); }
+  return s;
+}
+
+// ---- Source selection ------------------------------------------------------
+$('sspa-src-bundled').addEventListener('change', () => {
+  $('sspa-upload-row').classList.add('hidden');
+  $('sspa-src-bundled-card').classList.add('selected');
+  $('sspa-src-upload-card').classList.remove('selected');
+  fetchBundledSSPATemplate();
+});
+
+$('sspa-src-upload').addEventListener('change', () => {
+  $('sspa-upload-row').classList.remove('hidden');
+  $('sspa-src-upload-card').classList.add('selected');
+  $('sspa-src-bundled-card').classList.remove('selected');
+  const st = $('sspa-template-status');
+  //st.textContent = 'Choose a blank ASD SSP-A template (.xlsx) above.';
+  st.style.color = '';
+  sspaState.workbook = null;
+  $('sspa-steps').classList.add('hidden');
+  $('sspa-file-info')?.classList.add('hidden');
+});
+
+// ---- Bundled template fetch ------------------------------------------------
+async function fetchBundledSSPATemplate() {
+  const st = $('sspa-template-status');
+
+  // Clear any previously loaded workbook so a failed bundled fetch cannot leave an older uploaded template active
+  sspaState.workbook = null;
+  $('sspa-steps').classList.add('hidden');
+  $('sspa-na-count').classList.add('hidden');
+  $('sspa-file-info')?.classList.add('hidden');
+
+  st.textContent = 'Loading bundled template…'; st.style.color = '';
+  try {
+    const r = await fetch(SSPA_TEMPLATE_URL);
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const buf = await r.arrayBuffer();
+    sspaState.workbook = XLSX.read(new Uint8Array(buf), { type: 'array', cellStyles: true });
+    // Try to surface the quarter from the sheet names so the user can confirm they have the right template.
+    const sspaQShort = (sspaState.workbook.SheetNames || []).reduce((found, n) => found || quarterFromSheetName(n), '');
+    const sspaQLabel = sspaQShort ? quarterLong(sspaQShort) : '';
+    st.textContent = sspaQLabel ? `Bundled SSP-A template loaded - ${sspaQLabel} ✓` : 'Bundled SSP-A template loaded ✓';
+    st.style.color = '#128a5a';
+
+    // Compute SHA-256, compare against expected, and populate the file-version panel.
+    const sspaHash = await sha256hex(buf);
+    showFileVersionPanel('sspa-file-info', 'fv-rows-tab1', [
+      fvRow('sspa-template-current.xlsx', sspaQLabel, buf.byteLength, sspaHash, BUNDLED_FILE_HASHES['sspa-template-current.xlsx']),
+    ]);
+
+    onSSPATemplateLoaded();
+  } catch (err) {
+    st.textContent = `Could not load bundled template (${err.message || err}). Please upload your own.`;
+    st.style.color = '#c0392b';
+    // Deselect bundled option to signal failure
+    $('sspa-src-bundled').checked = false;
+    $('sspa-src-bundled-card').classList.remove('selected');
+    console.warn('[IRAP Pulse] SSP-A template fetch failed:', err);
+  }
+}
+
+// ---- File upload handler ---------------------------------------------------
+(function wireSSPAUpload() {
+  const input = $('sspa-file-upload');
+  const zone  = $('sspa-drop-zone');
+  if (!input || !zone) return;
+
+  input.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    readSSPAFile(file);
+  });
+
+  zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.classList.add('drag-over'); });
+  zone.addEventListener('dragleave', ()  => zone.classList.remove('drag-over'));
+  zone.addEventListener('drop', (e) => {
+    e.preventDefault(); zone.classList.remove('drag-over');
+    const file = e.dataTransfer.files[0];
+    if (file) readSSPAFile(file);
+  });
+})();
+
+async function readSSPAFile(file) {
+  const st = $('sspa-template-status');
+
+  // Clear any previously loaded workbook so stale state cannot leak through on failed replacement uploads
+  sspaState.workbook = null;
+  $('sspa-steps').classList.add('hidden');
+  $('sspa-na-count').classList.add('hidden');
+  $('sspa-file-info')?.classList.add('hidden');
+
+  // Size check (reuses Tab 2's MAX_XLSX_BYTES constant)
+  if (file.size > MAX_XLSX_BYTES) {
+    st.textContent = `File too large (${(file.size / 1048576).toFixed(1)} MB) — maximum is 50 MB.`;
+    st.style.color = '#c0392b'; return;
+  }
+  // Extension check
+  if (!/\.xlsx$/i.test(file.name)) {
+    st.textContent = 'Please upload a plain Excel workbook (.xlsx). Other formats are not supported.';
+    st.style.color = '#c0392b'; return;
+  }
+
+  try {
+    // ZIP magic-byte check — xlsx files are ZIP containers beginning with PK\x03\x04
+    const head = new Uint8Array(await file.slice(0, 4).arrayBuffer());
+    const isZip = head[0] === 0x50 && head[1] === 0x4B && (head[2] === 0x03 || head[2] === 0x05 || head[2] === 0x07);
+    if (!isZip) {
+      st.textContent = `"${file.name}" does not look like a valid Excel workbook — check the file and try again.`;
+      st.style.color = '#c0392b'; return;
+    }
+
+    st.textContent = 'Reading…'; st.style.color = '';
+    const buf = await file.arrayBuffer();
+    sspaState.workbook = XLSX.read(new Uint8Array(buf), { type: 'array', cellStyles: true });
+    st.textContent = `${file.name} loaded ✓`; st.style.color = '#128a5a';
+
+    // Compute SHA-256 of the uploaded file and populate the version panel.
+    const uploadQShort = (sspaState.workbook.SheetNames || []).reduce((found, n) => found || quarterFromSheetName(n), '');
+    const uploadQLabel = uploadQShort ? quarterLong(uploadQShort) : '';
+    const uploadHash = await sha256hex(buf);
+    showFileVersionPanel('sspa-file-info', 'fv-rows-tab1', [
+      fvRow(file.name, uploadQLabel, buf.byteLength, uploadHash, null),
+    ]);
+
+    onSSPATemplateLoaded();
+  } catch (err) {
+    st.textContent = `Error reading file: ${err.message || err}`; st.style.color = '#c0392b';
+    sspaState.workbook = null;
+  }
+}
+
+// ---- Template loaded callback ---------------------------------------------
+function onSSPATemplateLoaded() {
+  // Validate that the loaded workbook looks like an ASD SSP-A template.
+  // A valid template must have a Controls sheet with ISM-XXXX identifiers.
+  if (!findSSPAControlsSheet(sspaState.workbook)) {
+    const st = $('sspa-template-status');
+    st.textContent = 'This file does not appear to be an ASD SSP-A template — no Controls sheet found. Please check that you have uploaded a blank ASD SSP-A (.xlsx) and try again.';
+    st.style.color = '#c0392b';
+    sspaState.workbook = null;
+    // Uncheck whichever source was selected so the user tries again
+    document.querySelectorAll('input[name="sspa-source"]').forEach(r => r.checked = false);
+    document.querySelectorAll('.sspa-source-option').forEach(el => el.classList.remove('selected'));
+    return;
+  }
+  buildGuidelinesList();
+  // Reset classification selection
+  const sel = $('sspa-classification');
+  if (sel) sel.value = '';
+  $('sspa-na-count').classList.add('hidden');
+  $('sspa-steps').classList.remove('hidden');
+}
+
+// ---- Classification → NA count --------------------------------------------
+$('sspa-classification').addEventListener('change', (e) => {
+  updateSSPANACount(e.target.value);
+});
+
+function updateSSPANACount(cls) {
+  const countEl = $('sspa-na-count');
+  if (!sspaState.workbook || !cls) { countEl.classList.add('hidden'); return; }
+  const classCol = SSPA_CLASS_COL[cls];
+  if (!classCol) { countEl.classList.add('hidden'); return; }
+
+  const controlsSheet = findSSPAControlsSheet(sspaState.workbook);
+  if (!controlsSheet) { countEl.classList.add('hidden'); return; }
+
+  const ws  = sspaState.workbook.Sheets[controlsSheet];
+  const aoa = XLSX.utils.sheet_to_json(ws, { header: 1, defval: null });
+
+  // Find header row
+  let hdrIdx = 0;
+  for (let i = 0; i < Math.min(aoa.length, 8); i++) {
+    if ((aoa[i] || []).some(c => canonicaliseHeader(c) === 'Identifier')) { hdrIdx = i; break; }
+  }
+  const headers = aoa[hdrIdx] || [];
+
+  // Find classification column index
+  let classColIdx = -1;
+  let identColIdx = -1;
+  headers.forEach((h, i) => {
+    const raw = String(h || '').trim();
+    if (canonicaliseHeader(h) === classCol) classColIdx = i;
+    if (canonicaliseHeader(h) === 'Identifier') identColIdx = i;
+  });
+  if (classColIdx < 0) { countEl.classList.add('hidden'); return; }
+
+  let naCount = 0, total = 0;
+  for (let r = hdrIdx + 1; r < aoa.length; r++) {
+    const row = aoa[r] || [];
+    if (!row.some(c => c != null)) continue;
+    if (identColIdx >= 0 && !row[identColIdx]) continue;
+    total++;
+    if (String(row[classColIdx] || '').trim().toLowerCase() === 'no') naCount++;
+  }
+
+  const display = SSPA_CLASS_DISPLAY[cls];
+  countEl.innerHTML = `<span class="sspa-na-badge"><strong>${naCount}</strong> of ${total} controls will be marked Not Applicable — these controls do not apply to ${escHtml(display)} systems per the ISM.</span>`;
+  countEl.classList.remove('hidden');
+}
+
+// ---- Build guidelines checklist -------------------------------------------
+function buildGuidelinesList() {
+  const container = $('sspa-guidelines-list');
+  if (!container) return;
+  container.innerHTML = '';
+
+  // Initialise state for all 22
+  SSPA_GUIDELINES.forEach(g => {
+    sspaState.guidelineStates[g.name] = { checked: g.preticked, justification: '' };
+  });
+
+  // Section label: Pre-ticked
+  const pretickLabel = document.createElement('p');
+  pretickLabel.className = 'sspa-gl-group-label';
+  pretickLabel.textContent = 'Pre-ticked — applies to most systems';
+  container.appendChild(pretickLabel);
+
+  SSPA_GUIDELINES.filter(g => g.preticked).forEach((g, idx) => renderGuidelineItem(g, 'pt' + idx, container));
+
+  // Section label: User-controlled
+  const userLabel = document.createElement('p');
+  userLabel.className = 'sspa-gl-group-label';
+  userLabel.style.marginTop = '16px';
+  userLabel.textContent = 'Tick if in scope for this assessment';
+  container.appendChild(userLabel);
+
+  SSPA_GUIDELINES.filter(g => !g.preticked).forEach((g, idx) => renderGuidelineItem(g, 'uc' + idx, container));
+}
+
+function renderGuidelineItem(g, key, container) {
+  const cbId   = 'sspa-gl-cb-' + key;
+  const taId   = 'sspa-gl-ta-' + key;
+  const item   = document.createElement('div');
+  item.className = 'sspa-guideline-item' + (g.preticked ? ' preticked' : '');
+  item.dataset.guideline = g.name;
+
+  const pretickTag = g.preticked
+    ? `<span class="sspa-gl-pretick-tag">${escHtml(g.pretickReason)}</span>`
+    : '';
+
+  item.innerHTML = `
+    <div class="sspa-gl-header">
+      <label class="sspa-gl-label" for="${cbId}">
+        <input type="checkbox" id="${cbId}" ${g.preticked ? 'checked' : ''} />
+        <span class="sspa-gl-name">${escHtml(g.name)}</span>
+      </label>
+      ${pretickTag}
+    </div>
+    <p class="sspa-gl-description">${escHtml(g.description)}</p>
+    <div class="sspa-gl-justification hidden" id="sspa-just-wrap-${key}">
+      <label class="sspa-gl-just-label" for="${taId}">
+        Justification for excluding this Guideline <span style="font-weight:400;color:var(--text-muted)">(optional — added to each control comment)</span>
+      </label>
+      <textarea id="${taId}" placeholder="Explain why ${escHtml(g.name)} is outside the scope of this assessment…" rows="2"></textarea>
+    </div>`;
+
+  const cb   = item.querySelector(`#${cbId}`);
+  const wrap = item.querySelector(`#sspa-just-wrap-${key}`);
+  const ta   = item.querySelector(`#${taId}`);
+
+  cb.addEventListener('change', () => {
+    sspaState.guidelineStates[g.name].checked = cb.checked;
+    if (!cb.checked) {
+      wrap.classList.remove('hidden');
+      item.classList.add('out-of-scope');
+    } else {
+      wrap.classList.add('hidden');
+      item.classList.remove('out-of-scope');
+      sspaState.guidelineStates[g.name].justification = '';
+      if (ta) ta.value = '';
+    }
+  });
+
+  ta.addEventListener('input', () => {
+    sspaState.guidelineStates[g.name].justification = ta.value.trim();
+  });
+
+  container.appendChild(item);
+}
+
+// ---- Implementation status fill colours -----------------------------------
+// Applied to the Implementation Status and Responsibility columns in both sheets.
+const IMPL_STATUS_COLOURS = {
+  'Implemented':            'C6EFCE',  // green  — full compliance
+  'Partially Implemented':  'FFEB9C',  // amber  — in progress
+  'Planned':                'BDD7EE',  // blue   — roadmap item
+  'Not Implemented':        'FFC7CE',  // red    — gap
+  'Not Applicable':         'E2E2E2',  // grey   — excluded by classification or scope
+  'Not Assessed':           'FFFFFF',  // white  — blank template default
+};
+
+// Column widths from the ASD SSP-A template XML (Excel character units)
+const CONTROLS_COL_WIDTHS  = [38.66,38.66,38.66, 11.33,11.33,11.33, 6.66,6.66,6.66,6.66,6.66,6.66,6.66,6.66, 75, 33.33,33.33, 75];
+const PRINCIPLES_COL_WIDTHS = [14, 14, 32, 75, 28, 28, 65];
+
+// ---- Helper: find Principles sheet (content-based) -----------------------
+function findSSPAPrinciplesSheet(wb) {
+  for (const name of wb.SheetNames) {
+    const ws = wb.Sheets[name];
+    if (!ws) continue;
+    const aoa = XLSX.utils.sheet_to_json(ws, { header: 1, defval: null });
+    for (let i = 0; i < Math.min(aoa.length, 8); i++) {
+      const headers = (aoa[i] || []).map(c => canonicaliseHeader(c));
+      if (headers.includes('Identifier') && headers.includes('Function')) return name;
+    }
+  }
+  return null;
+}
+
+// ---- Helper: rename a header cell value -----------------------------------
+function renameSSPAHeader(ws, hdrIdx, oldName, newName) {
+  const headers = XLSX.utils.sheet_to_json(ws, { header: 1, defval: null })[hdrIdx] || [];
+  headers.forEach((h, colIdx) => {
+    if (String(h || '').trim() === oldName) {
+      const addr = colLetter(colIdx) + (hdrIdx + 1);
+      if (ws[addr]) ws[addr].v = newName;
+    }
+  });
+}
+
+// ---- Helper: style all data cells in a sheet ----------------------------
+// Every column gets: Calibri 11pt, wrapText, vertical-centre, left-align,
+// thin light-grey borders. Responsibility and Implementation Status columns
+// additionally get fill colours driven by IMPL_STATUS_COLOURS.
+// respColIdx / commColIdx may be -1 to skip colour on those columns.
+function styleSSPAEditableColumns(ws, respColIdx, implColIdx, commColIdx, hdrIdx) {
+  if (implColIdx < 0) return;
+  const aoa  = XLSX.utils.sheet_to_json(ws, { header: 1, defval: null });
+  const THIN = { style: 'thin', color: { rgb: 'CFD6E0' } };
+  const BORD = { top: THIN, bottom: THIN, left: THIN, right: THIN };
+  const wrapBase = {
+    font:      { name: 'Calibri', sz: 11 },
+    alignment: { wrapText: true, vertical: 'center', horizontal: 'left' },
+    border:    BORD,
+  };
+
+  // Total columns: derived from the header row so we cover every column
+  // in the sheet without hard-coding indices.
+  const totalCols = (aoa[hdrIdx] || []).length;
+
+  for (let rowIdx = hdrIdx + 1; rowIdx < aoa.length; rowIdx++) {
+    if (!(aoa[rowIdx] || []).some(v => v != null)) continue;
+    const r = rowIdx + 1;
+
+    // Pass 1 — apply base style to EVERY column
+    for (let c = 0; c < totalCols; c++) {
+      const addr = colLetter(c) + r;
+      if (!ws[addr]) ws[addr] = { t: 's', v: '' };
+      ws[addr].s = { ...wrapBase };
+    }
+
+    // Pass 2 — override Responsibility with fill colour (if status matches)
+    if (respColIdx >= 0) {
+      const addr = colLetter(respColIdx) + r;
+      const val  = String(ws[addr].v || '').trim();
+      const rgb  = Object.prototype.hasOwnProperty.call(IMPL_STATUS_COLOURS, val)
+        ? IMPL_STATUS_COLOURS[val] : null;
+      if (rgb) ws[addr].s = { ...wrapBase, fill: { patternType: 'solid', fgColor: { rgb } } };
+    }
+
+    // Pass 3 — override Implementation Status with fill colour always
+    {
+      const addr = colLetter(implColIdx) + r;
+      const val  = String(ws[addr].v || '').trim();
+      const rgb  = IMPL_STATUS_COLOURS[val] || IMPL_STATUS_COLOURS['Not Assessed'];
+      ws[addr].s = { ...wrapBase, fill: { patternType: 'solid', fgColor: { rgb } } };
+    }
+  }
+}
+
+// ---- Generate + download SSP-A -------------------------------------------
+$('btn-sspa-generate').addEventListener('click', generateSSPA);
+
+function generateSSPA() {
+  const errEl = $('sspa-generate-error');
+  errEl.style.display = 'none';
+
+  if (!sspaState.workbook) {
+    errEl.textContent = 'No template loaded. Select a source and wait for it to load.';
+    errEl.style.display = 'block'; return;
+  }
+  const cls = ($('sspa-classification') || {}).value || '';
+  if (!cls) {
+    errEl.textContent = 'Please select a classification in Step 1.';
+    errEl.style.display = 'block'; return;
+  }
+
+  const orgName = (($('sspa-org-name') || {}).value || '').trim();
+  if (!orgName) {
+    errEl.textContent = 'Organisation name is required — it appears in the output filename.';
+    errEl.style.display = 'block'; return;
+  }
+  const classCol     = SSPA_CLASS_COL[cls];
+  const classDisplay = SSPA_CLASS_DISPLAY[cls];
+
+  try {
+    // Deep-clone so each download starts from the clean original.
+    const wb = typeof structuredClone !== 'undefined'
+      ? structuredClone(sspaState.workbook)
+      : JSON.parse(JSON.stringify(sspaState.workbook));
+
+    // ---- Controls sheet --------------------------------------------------
+    const controlsSheetName = findSSPAControlsSheet(wb);
+    if (!controlsSheetName) {
+      errEl.textContent = 'Could not find a Controls sheet in the template.';
+      errEl.style.display = 'block'; return;
+    }
+
+    const ws  = wb.Sheets[controlsSheetName];
+    const aoa = XLSX.utils.sheet_to_json(ws, { header: 1, defval: null });
+
+    let hdrIdx = 0;
+    for (let i = 0; i < Math.min(aoa.length, 8); i++) {
+      if ((aoa[i] || []).some(c => canonicaliseHeader(c) === 'Identifier')) { hdrIdx = i; break; }
+    }
+    const headers = aoa[hdrIdx] || [];
+
+    let implColIdx = -1, commColIdx = -1, classColIdx = -1, glColIdx = -1, identColIdx = -1, respColIdx = -1;
+    headers.forEach((h, i) => {
+      const raw   = String(h || '').trim();
+      const canon = canonicaliseHeader(h);
+      if (canon === classCol)                                            classColIdx = i;
+      if (canon === 'Guideline')                                         glColIdx    = i;
+      if (canon === 'Identifier')                                        identColIdx = i;
+      if (raw === 'Responsibility' || canon === 'Provider Responsibility') respColIdx = i;
+      if (raw === 'Implementation' || canon === 'Implementation Status')  implColIdx = i;
+      if (raw === 'Comments')                                            commColIdx  = i;
+    });
+
+    if (implColIdx < 0 || commColIdx < 0) {
+      errEl.textContent = 'Could not find Implementation or Comments columns in the Controls sheet.';
+      errEl.style.display = 'block'; return;
+    }
+
+    // Rename "Implementation" → "Implementation Status" in both sheets
+    renameSSPAHeader(ws, hdrIdx, 'Implementation', 'Implementation Status');
+
+    const implLetter = colLetter(implColIdx);
+    const commLetter = colLetter(commColIdx);
+    const respLetter = respColIdx >= 0 ? colLetter(respColIdx) : null;
+
+    // Mark Not Applicable where classification or scope excludes the control
+    for (let rowIdx = hdrIdx + 1; rowIdx < aoa.length; rowIdx++) {
+      const row = aoa[rowIdx] || [];
+      if (!row.some(c => c != null)) continue;
+      if (identColIdx >= 0 && !row[identColIdx]) continue;
+
+      const guidelineName = glColIdx >= 0 ? String(row[glColIdx] || '').trim() : '';
+      const isClassNA     = classColIdx >= 0 && String(row[classColIdx] || '').trim().toLowerCase() === 'no';
+      const gState        = sspaState.guidelineStates[guidelineName];
+      const isGlOOS       = gState && !gState.checked;
+
+      if (!isClassNA && !isGlOOS) continue;
+
+      let commentValue;
+      if (isClassNA) {
+        commentValue = `This control is not applicable to ${classDisplay} systems. This IRAP assessment is limited to ${classDisplay} ISM requirements.`;
+      } else {
+        const std    = `This control is not applicable as ${guidelineName} is outside the scope of this IRAP assessment.`;
+        const custom = (gState && gState.justification) ? gState.justification : '';
+        commentValue = (!custom || custom.includes(std)) ? (custom || std) : std + ' ' + custom;
+      }
+
+      const excelRow = rowIdx + 1;
+
+      // Implementation Status -> Not Applicable
+      const implAddr = implLetter + excelRow;
+      if (ws[implAddr]) { ws[implAddr].v = 'Not Applicable'; ws[implAddr].t = 's'; delete ws[implAddr].w; }
+      else ws[implAddr] = { t: 's', v: 'Not Applicable' };
+
+      // Responsibility -> Not Applicable
+      if (respLetter) {
+        const respAddr = respLetter + excelRow;
+        if (ws[respAddr]) { ws[respAddr].v = 'Not Applicable'; ws[respAddr].t = 's'; delete ws[respAddr].w; }
+        else ws[respAddr] = { t: 's', v: 'Not Applicable' };
+      }
+
+      // Comments
+      const commAddr = commLetter + excelRow;
+      if (ws[commAddr]) { ws[commAddr].v = commentValue; ws[commAddr].t = 's'; delete ws[commAddr].w; }
+      else ws[commAddr] = { t: 's', v: commentValue };
+    }
+
+    // Apply wrapText + borders + fill colours to all editable column cells.
+    // Styles are assigned explicitly — no reliance on the cellStyles read round-trip.
+    styleSSPAEditableColumns(ws, respColIdx, implColIdx, commColIdx, hdrIdx);
+
+    // Explicit column widths (matching original template XML values).
+    ws['!cols'] = CONTROLS_COL_WIDTHS.map(w => ({ wch: w }));
+
+    // No fixed row heights — rows auto-fit based on wrapText content when
+    // opened in Excel. customHeight="1" would prevent auto-fit; leaving !rows
+    // empty (or absent) lets Excel expand each row to show its full content.
+    ws['!rows'] = [];
+
+    // ---- Principles sheet — rename header + colour-code only -------------
+    // Values are not changed in the Principles sheet (all principles always apply).
+    const principlesSheetName = findSSPAPrinciplesSheet(wb);
+    if (principlesSheetName) {
+      const wsp  = wb.Sheets[principlesSheetName];
+      const aoap = XLSX.utils.sheet_to_json(wsp, { header: 1, defval: null });
+      let pHdr = 0;
+      for (let i = 0; i < Math.min(aoap.length, 8); i++) {
+        if ((aoap[i] || []).some(c => canonicaliseHeader(c) === 'Identifier')) { pHdr = i; break; }
+      }
+      let pRespIdx = -1, pImplIdx = -1, pCommIdx = -1;
+      (aoap[pHdr] || []).forEach((h, i) => {
+        const raw = String(h || '').trim();
+        if (raw === 'Responsibility' || canonicaliseHeader(h) === 'Provider Responsibility') pRespIdx = i;
+        if (raw === 'Implementation' || canonicaliseHeader(h) === 'Implementation Status')   pImplIdx = i;
+        if (raw === 'Comments') pCommIdx = i;
+      });
+      renameSSPAHeader(wsp, pHdr, 'Implementation', 'Implementation Status');
+      styleSSPAEditableColumns(wsp, pRespIdx, pImplIdx, pCommIdx, pHdr);
+      wsp['!cols'] = PRINCIPLES_COL_WIDTHS.map(w => ({ wch: w }));
+      wsp['!rows'] = []; // auto-fit, same as Controls sheet
+    }
+
+    // ---- All remaining sheets (Info, any custom tabs) --------------------
+    // Apply wrapText + centre-left alignment to every cell in every sheet
+    // that wasn't already handled above. No borders or fill changes — just
+    // the two alignment properties the user requested.
+    {
+      const processed = new Set([controlsSheetName, principlesSheetName].filter(Boolean));
+      const baseStyle = {
+        font:      { name: 'Calibri', sz: 11 },
+        alignment: { wrapText: true, vertical: 'center', horizontal: 'left' },
+      };
+      wb.SheetNames.forEach(name => {
+        if (processed.has(name)) return;
+        const wss = wb.Sheets[name];
+        if (!wss) return;
+        Object.keys(wss).forEach(key => {
+          if (key[0] === '!') return; // skip !ref, !cols, !rows, etc.
+          const cell = wss[key];
+          if (cell && cell.t) cell.s = { ...baseStyle };
+        });
+      });
+    }
+
+    const quarter      = quarterFromSheetName(controlsSheetName);
+    const quarterLabel = quarter ? quarterLong(quarter) : controlsSheetName;
+    const filename     = `SSP-A — ${orgName} — ${classDisplay} — ${quarterLabel}.xlsx`;
+
+    // Use the same write pattern as the existing Tab 2 exports — proven to
+    // serialise cell .s objects correctly with xlsx-js-style. Passing
+    // {cellStyles:true} to writeFile is NOT needed and can break style output.
+    const xlsxArray = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+    const blob = new Blob([xlsxArray], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    downloadBlob(blob, filename);
+
+  } catch (err) {
+    errEl.textContent = `Error generating file: ${err.message || String(err)}`;
+    errEl.style.display = 'block';
+    console.error('[IRAP Pulse] SSP-A generation error:', err);
+  }
+}
+
 
 </script>
 </body>

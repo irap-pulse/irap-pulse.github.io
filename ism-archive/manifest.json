@@ -1,0 +1,22 @@
+{
+  "versions": [
+    { "id": "2026-06", "label": "June 2026",      "file": "ccm-2026-06.xlsx" },
+    { "id": "2026-03", "label": "March 2026",     "file": "ccm-2026-03.xlsx" },
+    { "id": "2025-12", "label": "December 2025", "file": "ccm-2025-12.xlsx" },
+    { "id": "2025-09", "label": "September 2025","file": "ccm-2025-09.xlsx" },
+    { "id": "2025-06", "label": "June 2025",     "file": "ccm-2025-06.xlsx" },
+    { "id": "2025-03", "label": "March 2025",    "file": "ccm-2025-03.xlsx" },
+    { "id": "2024-12", "label": "December 2024", "file": "ccm-2024-12.xlsx" },
+    { "id": "2024-09", "label": "September 2024","file": "ccm-2024-09.xlsx" },
+    { "id": "2024-06", "label": "June 2024",     "file": "ccm-2024-06.xlsx" },
+    { "id": "2024-03", "label": "March 2024",    "file": "ccm-2024-03.xlsx" },
+    { "id": "2023-12", "label": "December 2023", "file": "ccm-2023-12.xlsx" },
+    { "id": "2023-09", "label": "September 2023","file": "ccm-2023-09.xlsx" },
+    { "id": "2023-06", "label": "June 2023",     "file": "ccm-2023-06.xlsx" },
+    { "id": "2023-03", "label": "March 2023",    "file": "ccm-2023-03.xlsx" },
+    { "id": "2022-12", "label": "December 2022", "file": "ccm-2022-12.xlsx" },
+    { "id": "2022-09", "label": "September 2022","file": "ccm-2022-09.xlsx" },
+    { "id": "2022-06", "label": "June 2022",     "file": "ccm-2022-06.xlsx" },
+    { "id": "2022-03", "label": "March 2022",    "file": "ccm-2022-03.xlsx" }
+  ]
+}
